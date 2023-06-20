@@ -1,0 +1,65 @@
+#main_header {
+
+    height: 150px;
+    position: relative;
+}
+#title{
+    top: 1rem;
+    left: 0.5rem;
+    position: absolute;
+
+}
+#gnb_navigation{
+    position: absolute;
+    top:0.5rem;
+    right: 0;
+}
+#gnb_navigation>ul{
+    overflow: hidden;
+}
+#gnb_navigation>ul>li{
+    float: left;
+}
+#gnb_navigation>ul>li>a{
+    display: block;
+    padding: 2px 10px;
+    border: 1px solid black;
+}
+#gnb_navigation>ul>li>a:hover{
+    background-color: black;
+    color: white;
+    
+}
+#gnb_navigation>ul>li:first-child>a{
+    border-radius: 10px 0 0 10px;
+}
+#gnb_navigation>ul>li:last-child>a{
+    border-radius: 0 10px 10px 0;
+}        
+#lnb_navigation{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0;
+
+}
+#lnb_navigation>ul{
+    overflow: hidden;
+}
+#lnb_navigation>ul>li{
+    float: left;
+}
+#lnb_navigation>ul>li>a{
+    display: block;
+    padding: 2px 10px;
+    border: 1px solid black;
+}
+#lnb_navigation>ul>li>a:hover{
+    background-color: brown;
+    color: white;
+}
+#lnb_navigation>ul>li:first-child>a{
+    border-radius: 10px 0 0 10px;
+}
+#lnb_navigation>ul>li:last-child>a{
+    border-radius: 0 10px 10px 0;
+}

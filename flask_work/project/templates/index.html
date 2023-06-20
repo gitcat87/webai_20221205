@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{%block video1%}
+<script>
+  setTimeout(() => {
+    document.body.classList.add("reveal")
+}, 500)
+</script>
+<div id="loader" style="z-index: 2">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bg-overlay"></div>
+<video src="static/videos/video2.mp4"
+autoplay muted loop id="bgvid-01">
+</video>
+
+{%endblock%}
+
+{% block mainmenu%}
+<h1>welcome to hompage!</h1>
+<div id="carouselExampleControls" class="carousel slide m-auto" data-bs-ride="carousel">
+    <div class="carousel-inner" >
+      <div class="carousel-item active">
+        <a href="lotto"><img src="https://picsum.photos/300/300/" class="d-block  m-auto" alt="..."></a>
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/300/300/" class="d-block  m-auto" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/300/300/" class="d-block  m-auto" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" style="left: 500px;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" style="right: 500px;" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock%}

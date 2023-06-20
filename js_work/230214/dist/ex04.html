@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>document.addEventListener("DOMContentLoaded", ()=>{
+    const $input = document.querySelector("input");
+    const $p = document.querySelector("p");
+    //split 어떤 기준으로부터 잘라라
+    //indexOf 는 해당 문자열의 인덱스 번호를 출력 몇번째에 위치되어있는지
+    const isEmail = (value)=>{
+        return value.indexOf("@") > 1 && value.split("@")[1].indexOf(".") > 1;
+    };
+    $input.addEventListener("keyup", (event)=>{
+        const value = event.currentTarget.value;
+        if (isEmail(value)) $p.textContent = "이메일 형식입니다.";
+        else {
+            $p.style.color = "red";
+            $p.textContent = "이메일을 입력하셔야됩니다";
+        }
+    });
+});
+
+</script>
+</head>
+<body>
+    <input type="text">
+    <p></p>
+<script src="/ex04.fe6b6678.js"></script></body>
+</html>

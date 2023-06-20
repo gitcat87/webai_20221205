@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{counter-increment: bb;}
+        p::before{content: counter(bb);}
+        p::after{
+            content: "" attr(data-page)"page";
+            font-size: 2rem;
+            color:red
+        }
+        p::first-letter{
+            font-size: 3rem;
+        }       
+    </style>
+</head>
+<body>
+    <h1>lore ipsum dolor</h1>
+    <p data-page="52">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto incidunt maiores ullam dolorem eius eaque iure veritatis ab velit eveniet, laudantium autem excepturi modi aliquam, ipsum, accusantium corporis totam quis!</p>
+    <p data-page="273">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti eum saepe assumenda quisquam libero, tempore nihil at est pariatur sequi soluta officia iusto in voluptatibus laudantium, consectetur omnis quis natus.</p>
+</body>
+</html>

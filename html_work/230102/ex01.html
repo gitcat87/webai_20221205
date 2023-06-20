@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>        
+        *{
+           /*만약에 margin과 padding(여백관련) 값을 0을 주면 html의
+           기본적인 여백을 다 없애게 된다. 브라우저마다 여백의 값이
+           다르기 때문에 컴플레인이 들어올 수 있다. 따라서
+           margin과 padding은 값을 초기에 0을 주도록 한다.*/
+            border: 1px solid rgb(82, 144, 73);
+            
+        }
+        
+        h1{
+            
+            color: #00ffff; 
+        }
+        div{
+            
+            font-style: italic;
+        }
+        .aa{
+            width: 10rem;
+            height: 10rem;
+            background-color: #cc00ff;
+        }
+        #bb{
+            width: 10rem;
+            height: 10rem;
+            background-color: #00ccff;
+
+        }
+    </style>
+</head>
+<body>
+    <!--
+        태그선택자
+        클래스선택자
+        아이디선택자
+    -->
+    <h1>제목</h1>
+    <div class="aa">div는 세로공간분할태그</div>
+    <div id="bb">bb아이디분할태그</div>
+</body>
+</html>

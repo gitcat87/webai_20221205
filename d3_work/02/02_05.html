@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg {
+          width: 320px;
+          height: 240px;
+          border: 1px solid black;
+          
+        }
+        rect{fill: orange;}
+    </style>
+</head>
+<body>
+    <h1>d3로 속성다루기</h1>
+    <svg>
+        <rect class="myBar"  x="0" y="50" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="100" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="150" width="100" height="25"/>
+    </svg>
+    <button onclick="btnclick()">속성바꾸기</button>
+    <script>
+        function btnclick(){
+            d3./*select*/selectAll(".myBar") //지금은 id로 선택자가 되어있긴한데 그러면 class로 하면 다 선택이 될까? 안된다 하나만 됨
+            .attr("x",10)       //select로 선택하면 같은 조건에서 제일 첫번째 것을 선택하게 된다. 그럴때는 selectall을 사용하면 됨
+            //.attr("y",50)
+            .attr("width",200)
+            .attr("height", 40)
+            .style("fill","red")
+            .style("stroke","black")
+            .style("stroke-width","5")
+            //.transition()
+            //.duration(3000)
+            //.attr("width",100)
+        }
+    </script>
+</body>
+</html>

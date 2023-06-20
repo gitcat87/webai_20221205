@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    svg{width:320px;height:240px; border:1px solid black;}
+    .pie{fill:orange; stroke:white;}
+    .total{
+      font-size:12pt;text-anchor: middle;}
+    .pieVal{font-size:10pt; text-anchor: middle;}
+  </style>
+</head>
+<body>
+  <h1>원그래프 색지정</h1>
+  <svg id = "myGraph"></svg>
+  <script>
+    var svgWidth = 320;
+    var svgHeight = 240;
+    var dataSet = [50,30,12,5,3];
+    var color = d3.scale.category10();
+    //원그래프 좌표계산 레이아웃
+    var pie = d3.layout.pie()
+
+    //원그래프 패스계산 함수
+    var arc = d3.svg.arc().innerRadius(30).outerRadius(100);
+
+    //원그래프 데이터 바인딩
+    var pieElements = d3.select("#myGraph")
+                        .selectAll("g")
+                        .data(pie(dataSet))
+                        .enter()
+                        .append("g")
+                        .attr("transform", "translate("+svgWidth/2+","+svgHeight/2+")")
+    //부채꼴 생성
+    pieElements.append("path")                        
+               .attr("class", "pie")
+               //.attr("transform","translate("+(svgWidth/2)+","+(svgHeight/2)+")")
+               .style("fill", function(d,i){
+                return color(i);
+               })
+               .transition()
+               .duration(1000)
+               .delay(function(d,i){return i*1000;})
+               .ease("linear")
+               //.ease("poly")
+               //.ease("quad")
+               //.ease("cublic")
+               //.ease("sin")
+               //.ease("exp")
+               //.ease("circle")
+               //.ease("elastic")
+               //.ease("back")
+               //.ease("bounce")
+               .attrTween("d", function(d,i){
+                var interpolate = d3.interpolate(
+                  //시작각도
+                  {startAngle:d.startAngle, endAngle : d.startAngle},
+                  //종료각도
+                  {startAngle:d.startAngle, endAngle : d.endAngle}
+                );
+                return function(t){
+                  return arc(interpolate(t));
+                }
+
+               })           
+
+    var textElements =d3.select("#myGraph")
+                        .append("text")
+                        .attr("class", "total")
+                        .attr("transform"
+                        , "translate("+svgWidth/2+","+(svgHeight/2+5)+")")
+                        .text("합:"+d3.sum(dataSet))
+
+    pieElements.append("text")	// 데이터 수만큼 text 요소가 추가됨
+    .attr("class", "pieVal")	// CSS 클래스 설정
+    .attr("transform", function(d, i){
+      return "translate("+arc.centroid(d)+")";    // 부채꼴의 중심으로 함(무게 중심 계산)
+    })
+    .text(function(d, i){
+      return d.value;	// 값 표시
+    })    
+
+                           
+
+
+
+  </script>
+  
+</body>
+</html>

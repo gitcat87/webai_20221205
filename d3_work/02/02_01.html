@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width: 320px; height: 240px; border: 1px solid black;}
+        rect{fill:orange}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            d3.select("#myGraph") /* 먼저  div태그를 선택한다*/
+            .append("svg") /*div .append로 태그안에 svg태그를 넣는다*/
+            .append("rect") /*div .append로 태그 안에 rect태그를 넣는다*/
+            .attr("x","10") /*.attr로 x좌표 값을 설정해준다*/
+            .attr("y","10") /* .attr로 y좌표 값을 설정해 준다*/
+            .attr("width","100") /*.attr로 width값을 설정해준다*/
+            .attr("height","100") /* .attr로 height 값을 설정해준다*/
+        })
+        /*html 코드를 쓰지 않고 동적으로 추가해주면서 표현을 할 수 있다.*/
+    </script>
+</head>
+<body>
+    <h1>D#를 이용한 SVG생성</h1>
+    <div id="myGraph"></div>
+</body>
+</html>

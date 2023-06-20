@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    ul {
+        overflow: hidden;
+        /*float: left 나오면 무조건 넣어야됨*/
+    }
+
+    li {
+        float: left;
+        /*세로로 정렬 세로태그 display block ,div,li 가로태그 display inline span,a,img*/
+        list-style: none;
+        padding: 0.5rem;
+        /*글자 간격*/
+    }
+
+    li:first-child {
+        border-radius: 1rem 0 0 1rem;
+    }
+
+    li:last-child {
+        border-radius: 0 1rem 1rem 0;
+    }
+
+    li:nth-child(2n) {
+        background-color: antiquewhite;
+    }
+
+    li:nth-child(2n+1) {
+        background-color: rgb(237, 205, 164);
+    }
+
+    div:nth-child(2n) {
+        background-color: antiquewhite;
+    }
+
+    div:nth-child(2n+1) {
+        background-color: rgb(237, 205, 164);
+    }
+
+    div {
+        display: none;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    let div_vi = true;
+    $('document').ready(function () {
+        $('#first').on('click', function () {
+            if (div_vi == true) {
+                $('#div1').css('display', 'block')
+                div_vi = false;
+            } else {
+                $('#div1').css('display', 'none');
+                div_vi = true;
+            }
+        })
+    });
+</script>
+
+<body>
+    <ul>
+        <li id="first">first</li>
+        <li id="second">second</li>
+        <li id="third">third</li>
+        <li id="fourth">fourth</li>
+        <li id="fifth">fifth</li>
+        <li id="sixth">sixth</li>
+    </ul>
+    <div id="div1">
+        <h1>1111</h1>
+    </div>
+    <div id="div2">
+        <h1>2222</h1>
+    </div>
+    <div id="div3">
+        <h1>3333</h1>
+    </div>
+    <div id="div4">
+        <h1>4444</h1>
+    </div>
+    <div id="div5">
+        <h1>5555</h1>
+    </div>
+    <div id="div6">
+        <h1>6666</h1>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<script>const arr = [
+    273,
+    53,
+    90,
+    100,
+    220
+];
+const result1 = arr.forEach((i, v, arr)=>{
+    console.log(`i = ${i} v = ${v} arr=${arr}`);
+}); //각각의 값 표시만.. forEach(i(값), v(인덱스 순번arr[0], arr[1]...), 전체 리스트의 값)
+const result2 = arr.map((i, v, arr)=>{
+    console.log(`i = ${i} v = ${v} arr=${arr}`);
+    return i * i; //forEach와 같은데 return 값이 있다.
+});
+const result3 = arr.filter((v)=>v > 200); //filter( 조건 입력 v는 value라고 함..)
+console.log(`result1 ${result1}`);
+console.log(`result2 ${result2}`);
+console.log(`result2 ${result3}`);
+arr.filter(/*function*/ (v)=>v > 99).map((v)=>v * 2).forEach((v)=>console.log(v));
+
+</script>
+<script src="/ex03.9f170715.js"></script>

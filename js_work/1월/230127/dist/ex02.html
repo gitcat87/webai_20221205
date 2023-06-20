@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        버튼을 눌렀을때 div 태그를 보여주고 안 보여주고 하는 방법?
+        1. html css와
+        2. javascript로 하는 방법 두개가 있습니당
+    -->
+    <style>.btn {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: .5rem;
+  box-shadow: 1px 1px 1px;
+}
+
+.btn:hover {
+  background-color: bisque;
+  box-shadow: 2px 2px 2px;
+}
+
+.block {
+  display: block;
+}
+
+.none, #my-div {
+  display: none;
+}
+
+#my-checkbox:checked + #my-div {
+  display: block;
+}
+
+</style>
+</head>
+<body>
+    <h1>DIV나오고안나오고..</h1>
+    <label for="my-checkbox" class="btn">버튼</label>
+    <div style="position: absolute; bottom: 0; right: 0">
+    <input type="checkbox" id="my-checkbox" class="none">
+    <div id="my-div">
+        <h1>뭐제목</h1>
+        <h1>제목제목</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    </div>
+<script src="/ex02.57de9bc7.js"></script></body>
+</html>

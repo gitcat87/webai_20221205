@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',(e)=>{
+            const $h1 = document.querySelector('h1').innerText            
+            const $h2 = document.querySelector('h2')
+            const form = document.querySelector('form')
+            const $btn =  document.getElementById('btn')
+
+            $btn.addEventListener('click',(e)=>{
+                e.preventDefault();
+                window.localStorage.setItem('띠',$h1);
+                form.submit();
+            })
+
+            $h2.textContent = window.localStorage.getItem('띠');
+            const box = []
+            const box1 = $h1
+            box.push = $h1
+                     
+            window.localStorage.setItem('뱀','차갑다')
+            a= window.localStorage.getItem('띠')
+            b= window.localStorage.getItem('뱀')
+            console.log(a)
+            console.log(b)
+            console.log(box)  
+            
+        })
+    </script>
+</head>
+<body>  
+    <form action="index2" method="POST">
+        <input type="text" name="snake">
+        <input type="submit" value="확인" id="btn">
+    </form>
+    <h1>{{snake}}</h1>
+    <h2></h2>
+    <a href="index3">링크</a>
+</body>
+</html>

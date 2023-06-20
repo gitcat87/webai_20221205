@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+<body>
+    <h1>D3js로 여러 사각형 그리기</h1>
+    <svg id="myGraph">
+    </svg>
+    <script>
+        var dataSet = [300, 130, 5, 60, 240];
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", 0)         //추가된 rect y 속성값을 0
+        .attr("width",dataSet[0])    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", 25)         //추가된 rect y 속성값을 0
+        .attr("width",dataSet[1])    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", 50)         //추가된 rect y 속성값을 0
+        .attr("width",dataSet[2])    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", 75)         //추가된 rect y 속성값을 0
+        .attr("width",dataSet[3])    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", 100)         //추가된 rect y 속성값을 0
+        .attr("width",dataSet[4])    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+    </script>
+</body>
+</html>

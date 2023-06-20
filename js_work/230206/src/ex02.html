@@ -1,0 +1,12 @@
+<script>
+  function print(index) {
+    console.log(`print ${index} times`);
+  }
+
+  function forporint(myfn) {
+    for (let i = 0; i < 3; i++) {
+      myfn(i);
+    }
+  }
+  forporint(print);
+</script>

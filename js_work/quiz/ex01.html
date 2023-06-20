@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const guessNum = Math.floor(Math.random() *100 +1);
+        console.log(guessNum)
+        
+        document.addEventListener('DOMContentLoaded',()=>{
+            
+        const $guess = document.querySelector('#guess')
+        const $span = document.querySelector('span')
+        const $hint = document.querySelector('#hint')
+        const $submit =  document.querySelector('#submit')
+        const $p = document.querySelector('#status')
+
+        let box = []
+        let count = 1        
+        
+        $submit.addEventListener('click',(e)=>{
+
+            if(count <= 10){
+                ++count
+                box += ` ${$guess.value}`
+                console.log(box)
+                $span.textContent = box}
+            if(guessNum != $guess.value){
+                $p.textContent= '틀렸습니다!'
+                $p.style.backgroundColor = "red"
+                $p.style.color = "#ffffff"}  
+            if (count == 11){
+                $p.textContent= '그만! 게임이 끝났습니다!'
+                $p.style.backgroundColor = "red"
+                $p.style.color = "#ffffff"
+                }
+            if(guessNum<$guess.value)
+                $hint.textContent ='그거보단 작아요'
+            if(guessNum>$guess.value)
+                $hint.textContent ='그거보단 높아요'
+            if(guessNum==$guess.value){
+                $hint.textContent = '정확합니다'
+                $p.textContent = `정답입니다! 답은 ${guessNum}였어요`
+                $p.style.backgroundColor = "green"
+                $p.style.color = "#ffffff"
+                }
+            
+            
+
+
+        })
+            
+        })
+    </script>
+</head>
+<body>
+    <div class="container" style="width: 500px; align-content: center;">
+    <h1>숫자 맞추기 게임</h1>
+    <p>1과 100중에 숫자를 선택할 것입니다. 10번 안에 맞출 수 있을지 볼게요. 숫자가 낮거나 높으면 말씀드리겠습니다.</p>
+    숫자를 맞춰보세요 : <input type="text" id="guess">
+    <input type="submit" name="" id="submit" value="숫자 제출"><br><br>
+    <span></span><br>
+    <p id="status"></p><br>
+    <span id="hint"></span><br><br>
+    <button id="reset">새로 시작</button>
+    </div>
+</body>
+</html>

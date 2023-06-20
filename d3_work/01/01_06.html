@@ -1,0 +1,43 @@
+01_06.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>       
+    svg{
+        width:520px;
+        height:540px;
+        border:1px solid black;
+    }
+    </style>
+    <!--
+        태그문 path
+
+        선그리기
+        D
+
+        좌표 
+        M(m) : 좌표만 이동
+        L(l) : 선을 그릴때 사용
+        C(c) : 곡선(베지어곡선)
+        A(a) : 타원 호
+        Z(z) : 도형닫기
+        대문자: 절대좌표, 소문자: 상대좌표
+
+    -->
+</head>
+<body>
+    <h1>패스(곡선)</h1>
+    <svg border="1px solid black">
+       <!--- <path d="M100,100 L200,0 L300,100"/>
+        <path d="M100,100 C200,0  300,100" fill="orange", opacity="0.7" stroke="blue"/>-->
+        <path d="M10,210 L80,000  L150,180 L300,210" fill="blue", opacity="0.7" stroke="blue"/>
+        <path d="M10,210 C80,000   150,180  300,210" fill="orange", opacity="0.7" stroke="blue"/>
+
+    </svg>
+    
+</body>
+</html>

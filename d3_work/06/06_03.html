@@ -1,0 +1,117 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{
+            width: 320px; height: 240px; border: 1px solid black;
+        }
+        .bar{fill: orange;}
+        .barNum{font-size: 9pt; text-anchor:middle;}
+        /*
+        text-achor(정렬)
+        왼쪽:  start || 중앙: middle  || 오른쪽: end
+        */
+    </style>
+</head>
+<body>
+    <h1>세로막대그래프</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        var svgHeight = 240;
+        var barElements;
+        var dataSet = [120, 70, 175, 80, 220];
+        
+        //그래프 그리기
+        barElements = d3.select("#myGraph")
+        .selectAll("rect")
+        .data(dataSet)
+
+        barElements.enter()
+        .append("rect")
+        .attr("class","bar")
+        .attr("height",(dataset,index)=>
+            {
+                return dataset
+            })
+        .attr("width",20)
+        .attr("x",(dataset,index)=>
+            {
+                return index*25    
+            })
+        .attr("y",(dataset,index)=>
+            {
+                return svgHeight - dataset
+            })
+        
+        barElements.enter()
+        .append("text")
+        .attr("class","barNum")
+        .attr("x",function(d,i){return (i*25)+10})
+        .attr("y",svgHeight- 5)
+        .attr(function(d,i){return d})
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width:320px; height: 240px;border: 1px solid black;}
+        .bar{fill:orange;}
+        .barNum{
+            font-size: 9pt;
+            text-anchor: middle; /*=text align 왼쪽 start 중앙 middle 오른쪽 end*/
+        }
+        .barNum2{
+            font-size: 9pt;
+            text-anchor: end;
+            writing-mode: tb;
+            glyph-orientation-horizontal: 90;
+        }
+    </style>
+</head>
+<body>
+    <h1>세로막대그래프</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        var svgHeight = 240
+        var barElements;
+        var dataSet = [100,70,175,80,220];
+
+        //그래프 그리기
+        barElements = d3.select("#myGraph")
+                        .selectAll("rect")
+                        .data(dataSet);
+
+        barElements.enter()
+                    .append("rect")
+                    .attr("class","bar")
+                    .attr("height",function(d,i){return d;})
+                    .attr("width",20)
+                    .attr("x",function(d,i){return i*25})
+                    .attr("y",function(d,i){return svgHeight-d})
+
+        barElements.enter()
+                    .append("text")
+                    .attr("class","barNum2")
+                    .attr("x",function(d,i){
+                        return (i*25)+10;
+                    })
+                    .attr("y", svgHeight-10)
+                    //.attr("y",function(d,i){return svgHeight-d-3})
+                    .text(function(d,i){return d;})
+                    
+    </script>
+</body>
+</html>

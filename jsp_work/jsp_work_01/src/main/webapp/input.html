@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>사칙연산 프로그램</title>
+</head>
+<style>
+	.inputBox{
+		margin-top:10px;
+		}
+
+</style>
+<body>
+	<h1>계산기</h1>
+	<hr>
+
+	<form method="post" action="result.jsp">
+	<select id="cal" name="cal">
+	<option value="">선택하세요</option>
+	<option value="sum">덧셈</option>
+	<option value="min">뺄셈</option>
+	<option value="mul">곱셉</option>
+	<option value="div">나눗셈</option>
+	<option value="mod">나머지</option>	
+	</select>
+	<br>
+	<label for="num1">첫번째 숫자:</label>
+		<input type="text" name="num1" class="inputBox">
+		<br>
+		<label for="num2">두번째 숫자:</label>
+		<input type="text" name="num2" class="inputBox">
+		<br>
+		<input type="submit" value="결과 확인">
+	</form>	
+	<br>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<body>
+  <div id="my-div"></div>
+  <button id="my-btn">멈춤</button>
+  <button id="my-btn1">시작</button>
+</body>
+<script>
+  const $myDiv = document.getElementById("my-div");
+  const $myBtn = document.getElementById("my-btn");
+  const $myBtn1 = document.getElementById("my-btn1");
+  let cont = 0;
+
+  let test = setInterval(() => {
+    cont += 1;
+    $myDiv.innerHTML = `cont = ${cont.toLocaleString()}초`;
+  }, 1);
+
+  setTimeout(() => {
+    console.log("한번만실행");
+  }, 2000);
+
+  $myBtn.addEventListener(
+    "click",
+    /*function*/ () => {
+      clearInterval(test);
+    }
+  );
+  $myBtn1.addEventListener("click", () => {
+    test = setInterval(() => {
+      cont += 1;
+      $myDiv.innerHTML = `cont = ${cont.toLocaleString()}초`;
+    }, 1);
+  });
+</script>

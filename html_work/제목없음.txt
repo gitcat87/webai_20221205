@@ -1,0 +1,8 @@
+자식 태그의 float left를 주면
+부모 태그의 overflow hidden를 줘야한다.
+
+자식 태그의 postion absolute를 주면
+부모 태그의 postion relative를 줘야한다.
+
+자식 태그의 float left를 주면
+부모 태그의 overflow hidden를 줘야한다.

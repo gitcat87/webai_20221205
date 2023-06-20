@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Seymour+One&family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            /* reset 속성입니다 */
+            font-family: 'Signika Negative','Seymour One','PT Sans Narrow',sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #App {
+            /*넓이는 값을 주지 않아도 100%*/
+            display: flex;
+            /* 한 행으로 만들겠습니다 */
+            align-items: center;
+            /* 세로로 중간 정렬 하겠습니다 */
+            justify-content: center;
+            /*가로로 중간 정렬 하겠습니다 */
+            min-height: 100vh;
+            /*최소 높이 값을 지정해줍니다 */
+            background-color: #ccc;
+            
+        }
+        ul{
+            overflow: hidden;
+        }
+        li{
+            font-size: 2rem;
+            list-style: none; /*list 값 옆에 있는 동그라미를 없애줍니다 */
+            float: left; /* float: left; 속성을 주면 부모에게 overflow: hidden; 값을 주세요*/
+            /*display: inline-block; float: left; 둘 중 하나만 써야합니다.*/
+            border: 1px solid black;
+        }
+        li:first-child{
+            border-radius: 1rem 0 0 1rem; /*시계방향의 꼭지점으로 생각하세요*/
+        }
+        li:last-child{
+            border-radius: 0 1rem 1rem 0;
+        }
+        a{
+            color: black;
+            display: inline-block;
+            padding: 0.5rem;
+            text-decoration: none;
+        }
+        a:hover{
+            background-color: black;
+            color: #fff;
+        }
+        .fia{
+            border-radius: 1rem 0 0 1rem;
+        }
+        .laa{
+            border-radius: 0 1rem 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="App">
+        <div>
+            <h1>테스트</h1>
+            <!--display : inline block -->
+            <!--float : left -->            
+            <ul>
+                <li><a = href="#" class ="fia">one</a></li> <!-- li 값을 눌렀을때 "#"로 이동한다-->
+                <li><a = href="#">two</a></li>
+                <li><a = href="#">three</a></li>
+                <li><a = href="#" class ="laa">four</a></li>
+            </ul> <!-- 책 268페이지 참조-->
+        </div>
+    </div>
+</body>
+
+</html>

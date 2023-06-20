@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ex01</h1>
+    <input type="text" name="" id="my-input">
+    <button id="my-btn" onclick="doArea();">원반지름</button>
+    <div id="my-div"></div>
+</body>
+</html>
+<script>
+    const $myInput = document.getElementById('my-input');
+    const $myDiv = document.getElementById('my-div');
+    
+
+    const doArea = function(){
+        const inputValue = $myInput.value;
+        const area = Math.PI * inputValue * inputValue;
+        const cir = inputValue * 2 *Math.PI;
+
+        let outputValue = `<h1>입력값 = ${inputValue}</h1>`;
+        outputValue = outputValue + `<h2>원의 반지름 : ${inputValue}</h2>`;
+        outputValue = outputValue + `<h2>원의 넓이 : ${  Math.round(area*100)/100  }</h2>`;
+        outputValue = outputValue + `<h2>원의 둘레 : ${  Math.round(cir*100)/100  }</h2>`;
+        $myDiv.innerHTML =  outputValue;
+    }; //function(){} 중괄호 안에 있는 내용을 수행하는 모양이다...
+    // 문자열 안에 변수 값을 표시하고 싶으면 ``백택으로 감싸기
+    // Math 클래스 안에 PI값이 있나보다..
+ 
+</script>

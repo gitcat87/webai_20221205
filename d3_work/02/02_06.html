@@ -1,0 +1,32 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg {width: 320px; height: 240px; border: 1px solid black;}
+        rect{fill: orange;}
+        .myBar2{fill:green}
+    </style>
+</head>
+<body>
+    <h1>d3로 속성다루기</h1>
+    <svg>
+        <rect class="myBar"  x="0" y="50" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="100" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="150" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="200" width="100" height="25"/>
+
+    </svg>
+    <button onclick="btnclick()">속성바꾸기</button>
+    <script>
+        function btnclick(){
+            d3.selectAll(".myBar") //selectall로 myBar 클래스를 모두 선택해서
+                .attr("class","myBar2") //.attr로 class속성을 변경해 주는데 myBar2라는 클래스 이름으로 덮어 씌워버린다.(변경)
+        }
+    </script>
+</body>
+</html>

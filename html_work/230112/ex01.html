@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #aa:checked~#aDiv{display: block;}
+        #bb:checked~#bDiv{display: block;}
+        #aDiv{
+            overflow: hidden;
+        }
+        #apDiv>div{
+            float: left;
+        }
+        #apDiv{
+            margin-left: -50px;
+        }
+        #apDiv>div:nth-child(1){
+            background-color: red;
+        }
+        #apDiv>div:nth-child(2){
+            background-color: blue;
+        }
+        #apDiv>div:nth-child(3){
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="aa" id="aa"> <!--aa를 누르면 aa에 불 들어오고-->
+    <input type="checkbox" name="bb" id="bb"> <!--bb를 누르면 bb에 불 들어옵니다-->
+    <div>
+        <h1><label for="aa">aa</label></h1>
+        <h1><label for="bb">bb</label></h1>
+    </div>
+    <div id="aDiv">
+        <div id="apDiv">
+            <div>
+                111111111111111111
+            </div>
+            <div>
+                222222222222222222
+            </div>
+            <div>
+                333333333333333333
+            </div>
+        </div>
+    </div>
+    <div id="bdIV">
+        BBBBBBBBBBBBBBB
+    </div>
+</body>
+</html>

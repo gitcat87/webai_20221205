@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        #myGraph rect{
+            stroke : rgb(160,0,0);
+            stroke-width: 1px;
+            fill: rgb(255,0,0);
+        }
+    </style>
+</head>
+<body>
+    <h1>가로 막대그래프</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        //csv파일로 그래프 그리기
+        d3.csv("mydata.csv",(error,data)=>
+        {
+            var dataSet = [];
+            for(var i =0; i<data.length; i++)
+            {
+                dataSet.push(data[i].item1);
+            }
+
+            d3.select("#myGraph")
+            .selectAll("rect")
+            .data(dataSet)
+            .enter()
+            .append("rect")
+            .attr("x",0)
+            .attr("y",(dataset,index)=>
+            {
+                return index*25
+            })
+            .attr("height","20px")
+            .attr("width",(dataset,index)=>
+            {
+                return `${dataset}px`
+            })
+        })
+    </script>
+</body>
+</html>

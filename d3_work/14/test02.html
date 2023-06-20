@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    $(document).ready(function() {
+      setDatepicker('.');
+      // Calculate today's date
+      var Beginday = new Date();
+      Beginday.setDate(Beginday.getDate() - 100);
+      var formattedBeginday = Beginday.toISOString().split('T')[0];
+      
+      $('#datepicker1').datepicker();
+      document.querySelector('#datepicker1').value = formattedBeginday;
+
+
+      var today = new Date();
+      var formattedToday = today.toISOString().split('T')[0];
+      $('#datepicker2').datepicker();      
+      document.querySelector('#datepicker2').value = formattedToday;
+    });
+  </script>
+  <style>
+    .constainer{
+      display:flex;
+      align-items:center;
+    }
+    #datepicker1, #datepicker2, .ui-datepicker-trigger {
+      height: 100%;
+    }
+
+    svg{width:700px; height:240px;border:1px solid black; }
+    .bar{fill:orange;}
+    .barNum{font-size : 9pt;text-anchor:middle;}
+
+    .axis text{font-family:sans-serif; font-size:11px;}
+    .axis path, .axis line{fill:none; stroke:black;}
+    .axis_x line { fill:none; stroke:black;}
+    .barName{
+      font-size:9pt;
+      text-anchor:middle;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>막대그래프(요일별 업무시작건수)</h1>
+  <div class="container">
+    <label>년월: </label>
+    <select name="year" id="cbox_year">
+      <option value="2020">2020년</option>
+      <option value="2021">2021년</option>
+      <option value="2022">2022년</option>
+      <option value="2023" selected >2023년</option>
+      <option value="2024">2024년</option>
+      <option value="2025">2025년</option>
+      <option value="2026">2026년</option>
+      <option value="2027">2027년</option>
+      <option value="2028">2028년</option>
+      <option value="2029">2029년</option>
+    </select>
+    <select name="month" id="cbox_month">
+      <option value="01">01월</option>
+      <option value="02">02월</option>
+      <option value="03">03월</option>
+      <option value="04">04월</option>
+      <option value="05" selected >05월</option>
+      <option value="06">06월</option>
+      <option value="07">07월</option>
+      <option value="08">08월</option>
+      <option value="09">09월</option>
+      <option value="10">10월</option>
+      <option value="11">11월</option>
+      <option value="12">12월</option>
+    </select>
+    <button id="btn_search" onclick="search()">조회</button>
+  </div>
+  <div>
+    <svg id="myGraph"></svg>
+  </div>
+  <br>
+  <h1>결과메시지</h1>
+  <h3 id="result_msg"></h3>
+  <script>
+    function search(){
+      //달력값읽기
+      //년도 선택창 값읽
+      var _year   = document.getElementById('cbox_year').value;
+      var _month   = document.getElementById('cbox_month').value;
+
+      const _d3url = `http://localhost:3000/d3/info?work=01&year=${_year}&month=${_month}`;
+      alert(_d3url);
+
+      fetch(_d3url)
+      .then((response)=>response.json())
+      .then((rows)=>{
+        console.log(rows) 
+
+        barLabels = [];
+        barDatas  = [];
+        MaxData = 0;
+        rows.forEach(row=>{         
+          barLabels.push(row['DATE_FORMAT'].substring(8));
+          barDatas.push(row['DAILY_SALES']);
+          if(MaxData<Number(row['DAILY_SALES'])){
+            MaxData = Number(row['DAILY_SALES'])
+          }
+        })
+
+        document.getElementById('result_msg').innerHTML = barLabels+'<br>'+barDatas;
+
+        //막대그래프 그리기 -------------------
+        //초기설정값
+        var svgWidth = 700;
+        var svgHeight = 240;
+        var padding   = 10;
+        var axisYArea = 40;//y축좌표 공간
+        var axisXArea = 20;
+        var barWidth   = 15;
+        var barMargin  = 5;
+        var graphX  = padding + axisYArea;
+        var graphY = padding;
+        var graphWidth  = svgWidth - (padding*2) - axisYArea;
+        var graphHeight = svgHeight - (padding*2) - axisXArea;
+        var axisXAreaY  = graphY + graphHeight;
+        var valueMax = Math.ceil(MaxData * 1.1);
+        var Scale    = graphHeight/valueMax;
+
+        d3.select("#myGraph").selectAll("*").remove(); //화면전체 지우기
+        //데이터를 셋팅
+        barElements = d3.select('#myGraph')
+                        .selectAll('rect')
+                        .data(barDatas)
+        //막대상자 추가 및 좌표등 속성 설정
+        barElements.enter()
+                   .append("rect")
+                   .attr("class","bar")
+                   .attr("width", barWidth)
+                   .attr("height", function(d,i){return d* Scale;})
+                   .attr("x", function(d,i){                     
+                     // alert('x ('+i+') =>'+ (i* (barWidth + barMargin) + barMargin)  );
+                      return (i* (barWidth + barMargin) + barMargin);
+                    })
+                   .attr("y", function(d,i){
+                    //  alert('y ('+i+') =>'+(graphHeight - (d*Scale)));
+                      return graphHeight - (d*Scale);
+                   })
+                   .attr("transform", `translate(${graphX},${graphY})`)
+                   .on("mouseover", function(){
+                    d3.select(this).style("fill","red")
+                   })
+                   .on("mouseout", function(){
+                    d3.select(this).style("fill", "orange")
+                   })
+
+        //값을 표시
+        barElements.enter()
+                   .append("text")
+                   .attr("class","barName")
+                   .attr("y", function(d,i){
+                    return graphHeight - (d*Scale);
+                   })
+                   .attr("x" , function(d,i){
+                      return (i* (barWidth + barMargin) + barMargin)+(barWidth/2);
+                   })
+                   .text(function(d,i){return d;})
+                   .attr("transform",   `translate(${graphX},0)`)
+
+        //y축
+        var yScale = d3.scale.linear()
+                             .domain([0,valueMax])
+                             .range([graphHeight, 0])
+        d3.select("#myGraph")
+          .append("g")
+          .attr("class","axis")
+          .attr("transform", `translate(${graphX},${graphY})`)
+          .call(
+            d3.svg.axis()
+                  .scale(yScale)
+                  .orient("left")
+          )
+        //X축
+        d3.select("#myGraph")
+          .append("rect")
+          .attr("class", "axis_x")
+          .attr("width", graphWidth)
+          .attr("height", 1)
+          .attr("transform", `translate(${graphX},${graphY + graphHeight - 0.5})`)
+
+        //레이블
+        barElements.enter()
+                   .append("text")
+                   .attr("class", "barName")
+                   .attr("y", axisXAreaY + 15)
+                   .attr("x", function(d,i){
+                      return (i* (barWidth + barMargin) + barMargin)+(barWidth/2);
+                   })
+                   .text(function(d,i){
+                    return barLabels[i];
+                   })
+                   .attr("transform", `translate(${graphX},0)`)
+
+
+      })
+    }
+  </script>
+
+</body>
+</html>

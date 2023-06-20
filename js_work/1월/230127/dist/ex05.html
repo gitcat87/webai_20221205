@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>계산기</h1>
+    <input type="text" name="" id="my-input1" style="width: 3rem">
+    <input type="text" name="" id="my-input2" style="width: 3rem">
+    <button id="my-btn" onclick="doArea();">입력</button>
+    <div id="my-div"></div>
+
+    <h1>비교</h1>
+    <input type="text" id="my-input3" style="width: 3rem">
+    <button id="my-btn1" onclick="doBrea()">입력</button>
+    <div id="my-div1"></div>
+
+    <h1>짝수,홀수</h1>
+    <input type="text" id="my-input4" style="width: 3rem">
+    <button id="my-btn2" onclick="doCrea()">입력</button>
+    <div id="my-div2"></div>
+<script src="/ex05.721e520a.js"></script></body>
+</html>
+<script>//계산기 시작
+const $myInput1 = document.getElementById("my-input1");
+const $myInput2 = document.getElementById("my-input2");
+const $myDiv = document.getElementById("my-div");
+const doArea = function() {
+    const inputValue1 = $myInput1.value;
+    const inputValue2 = $myInput2.value;
+    if (inputValue1 > inputValue2) bigNum = inputValue1;
+    else bigNum = inputValue2;
+    return $myDiv.innerHTML = `입력받은 수는 ${inputValue1}과 ${inputValue2} <br/>가장 큰 숫자는 ${bigNum}`;
+};
+//계산기 끝
+//비교 시작
+const $myInput3 = document.getElementById("my-input3");
+const $myDiv1 = document.getElementById("my-div1");
+const doBrea = function() {
+    const inputValue3 = $myInput3.value;
+    if (inputValue3 >= 1) n1 = `입력받은 수${inputValue3}<br/>는(은) 양수입니다`;
+    else if (inputValue3 == 0) n1 = `입력받은 수${inputValue3}<br/>는(은) 0입니다`;
+    else n1 = `입력받은 수${inputValue3}<br/>는(은) 음수입니다`;
+    return $myDiv1.innerHTML = n1;
+};
+//비교 끝
+//홀수 짝수 시작
+const $myInput4 = document.getElementById("my-input4");
+const $myDiv2 = document.getElementById("my-div2");
+const doCrea = function() {
+    const inputValue4 = $myInput4.value;
+    if (inputValue4 % 2 == 0) n2 = `입력받은 수 ${inputValue4}<br/>는(은) 짝수입니다`;
+    else n2 = `입력받은 수 ${inputValue4}<br/>는(은) 홀수입니다`;
+    return $myDiv2.innerHTML = n2;
+} //홀수 짝수 끝
+;
+
+</script>

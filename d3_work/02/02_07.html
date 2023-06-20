@@ -1,0 +1,36 @@
+!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg {width: 320px; height: 240px; border: 1px solid black;}
+        rect{fill: orange;}
+        .myBar2{fill:green}
+    </style>
+</head>
+<body>
+    <h1>for문이 없는데 d3로 어떻게 할까?</h1>
+    <svg>
+        <rect class="myBar"  x="0" y="50" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="100" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="150" width="100" height="25"/>
+        <rect class="myBar"  x="0" y="200" width="100" height="25"/>
+    </svg>
+    <button onclick="btnclick()">속성바꾸기</button>
+    <script>
+        function btnclick(){
+            d3.selectAll(".myBar") 
+            //    .style("fill","red") 
+            .style("fill", function(d,i){ //d는 dataset을 말하고 i는 인덱스를 말한다. 들어가는 파라미터 자료형 타입은 정해져있다.
+                if(i % 2 == 1){             //function없이 화살표 함수로도 작동된다 (d,i)=> 이렇게..
+                    return "red"
+                }
+            })
+        }
+    </script>
+</body>
+</html>

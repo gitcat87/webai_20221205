@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+</style>
+    <script>document.addEventListener("DOMContentLoaded", ()=>{
+    document.body.style.backgroundColor = "#000000";
+    const $earth = document.querySelector("#earth");
+    const $sun = document.querySelector("#sun");
+    $sun.style.position = "absolute";
+    $sun.style.left = "100px";
+    $sun.style.top = "100px";
+    $earth.style.position = "absolute";
+    const distacne = 100;
+    let gak = 0;
+    setInterval(()=>{
+        //Math.sin()
+        gak = gak + 0.3;
+        y = Math.sin(gak);
+        x = Math.cos(gak);
+        console.log(`gak =${gak}`);
+        console.log(`x=${x} x*50 = ${x * 50}`);
+        console.log(`y=${y} y*50 = ${y * 50}`);
+        $earth.style.left = x * distacne + 130 + "px";
+        $earth.style.top = y * distacne + 130 + "px";
+    }, 50);
+});
+
+</script>
+</head>
+<body>
+    <div id="content">
+        <div id="sun">
+            <img src="/sun.1f9933df.jpg" alt="" width="100" height="100">
+        </div>
+        <div id="earth">
+            <img src="/earth.a6890c1a.jpg" alt="" width="30" height="30">
+        </div>
+    </div>
+<script src="/ex01.0851002e.js"></script></body>
+</html>

@@ -1,0 +1,16 @@
+<script>
+    const result = prompt('몇개?');
+    let 별표갯수 = 1;
+
+    for (let indent = result; indent > 0; indent--) {
+        let output = '';
+        for (let i = indent; i > 0; i--) {
+            output += ' ';
+        }
+        for (let i = 0; i < 별표갯수; i++) {
+            output += '*';
+        }
+        별표갯수 + 2;
+        console.log(output);
+    }
+</script>

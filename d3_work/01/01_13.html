@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>       
+    svg{
+        width:520px;
+        height:540px;
+        border:1px solid black;
+    }
+    </style>
+    <!--
+        태그문 path
+
+        선그리기
+        D
+
+        좌표 
+        M(m) : 좌표만 이동
+        L(l) : 선을 그릴때 사용
+        C(c) : 곡선(베지어곡선)
+        A(a) : 타원 호
+        Z(z) : 도형닫기
+        대문자: 절대좌표, 소문자: 상대좌표
+
+        스타일 속성
+        fill  : 배경색
+        stroke : 선색
+        stroke-width : 선 굵기
+        opacity : 투명도 오빠시티
+
+        문자열 속성
+        font-family : 글꼴
+        font-size : 글자크기
+        font-weight : 글자 굵기
+
+        문자열 정렬<text-anchor>
+        start       :좌측정렬 
+        middle      :중앙정렬
+        end         :우측정렬
+
+        도형그룹
+        g
+    -->
+    <style>
+        rect{
+            fill: blue;
+            stroke: rgb(0,255,255);
+            stroke-width: 5px;
+        }
+        #box{
+            fill:yellow;
+            stroke: rgb(0,255,255);
+            stroke-width: 5px;
+        }
+        .box{
+            fill:red;
+            stroke: bisque;
+            stroke-width: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>텍스트 예제</h1>
+    <svg>
+        <rect x="200" y="100" width="500" height="500"/>
+        <text x="200" y="80"  style="fill:black; font-weight: bold;">니꼬르 예제1</text>
+        <text x="200" y="120" text-anchor="start" style="fill:black; font-weight: 900;">니꼬르 예제2</text> <!--글자는 기준점부터 시작된다-->
+        <text x="200" y="160" text-anchor="middle" font-family="궁서" style="fill:black">니꼬르 예제3</text> <!-- 글자는 기준점의 가운데로 배치된다 즉 기준점의 x좌표의 -50-->
+        <text x="200" y="200" text-anchor="end" font-size="30px" style="fill:black">니꼬르 예제4</text> <!-- 기준점 기준으로 왼쪽으로 배치한다 즉 글자의 끝 지점이 기준점에 있다 -->
+    </svg>
+    
+</body>
+</html>

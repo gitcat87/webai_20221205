@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+            border: 1px solid black;
+            
+        }
+
+        button{
+            padding: 16px;
+            border: 1px solid black;
+        }
+        .dropdown{
+            display: inline-block;
+        }
+        .dropdown-menu{
+            display: none;
+        }
+
+        .dropdown-menu li{
+            display: block;
+        }
+        .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button>드롭다운 버튼</button>
+        <div class="dropdown-menu">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </div>
+    </div>
+</body>
+</html>

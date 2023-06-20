@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        
+            후손 선택자
+            div a
+            자손 선택자는 바로 아래 있어야한다
+            h2 > a
+
+        */
+        div a{
+            
+            color: green;
+        }
+        input{
+            height: 3rem;
+        }
+        input[type=button]{
+            height: 3.66rem;
+        }
+        input[type=button]:hover{/*마우스를 버튼 위에 올렸을때 주는 효과 hover*/
+            height: 5rem;
+            background-color: red;
+        }
+        input[type=checkbox]:checked+input{
+            padding: 3rem;
+        }
+        h2:active{/*active는 눌렀을때 주는 효과*/
+            font-size: 10rem;
+        }
+        p::first-letter{
+            font-size: 3rem;
+        }
+        p::after{
+            font-size: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <a href="http://www.naver.com">자손선택자</a>
+            <h1>h1</h1>
+            <h2><a href="#">A태그</a></h2>
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio, illum quibusdam ipsam aliquam quidem obcaecati reprehenderit eaque delectus. Odit eos fugiat libero officiis laboriosam sint repellendus sunt quos eveniet! Voluptatum.</p>
+        <div>
+            <h2>h2</h2>
+            <form action="#">
+                <input type="checkbox" name="">
+                <input type="text" name="" id="">
+                <input type="button" value="버튼">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

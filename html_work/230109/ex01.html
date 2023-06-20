@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!--
+        1.자식 태그에 position absoulte 주면
+        부모태그에 height position realative를 줘야 한다.
+        2.자식 태그에 float: left right주면
+        부모태그에 overflow hidden을 줘야한다.
+    -->
+    <!--
+        3.hover checked 다른 것을 변경 할 수 있다.
+        -> 더 진행하려면 자바 스크립트를 배워야 함..
+    -->
+    <style>
+        #pl {
+            background-color: #ccc;
+            position: relative;
+            height: 300px;
+        }
+
+        #cl {
+            margin-bottom: 50px;
+            margin-right: 50px;
+            background-color: #aaa;
+            position: absolute;
+            width: 250px;
+            height: 300px;
+            bottom: 0;
+            right: 0;            
+        }
+        #c2{
+            background-color: #aaa;
+            position: absolute;
+            width: 250px;
+            height: 300px;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <div id="pl">
+        <div id="cl">
+            <h1>lorem ipsum</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis et veritatis optio enim error aut dolorem
+                animi perspiciatis quasi officia non fugit alias exercitationem dignissimos sapiente similique commodi,
+                ea vel?
+            </p>
+        </div>
+        <div id="c2">
+            <h1>lorem ipsum</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis et veritatis optio enim error aut dolorem
+                animi perspiciatis quasi officia non fugit alias exercitationem dignissimos sapiente similique commodi,
+                ea vel?
+            </p>
+        </div>
+    </div>
+ </body>
+
+</html>

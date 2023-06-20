@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    svg{width:320px; height:240px; border:1px solid black;}
+    .bar{fill:orange;}
+  </style>
+</head>
+<body>
+  <h1>가로막대그래프</h1>
+  <div>
+    <button data-src="mydata10.csv">mydata10.csv 불러오기</button>
+    <button data-src="mydata20.csv">mydata20.csv 불러오기</button>
+    <button data-src="mydata30.csv">mydata30.csv 불러오기</button>
+
+  </div>
+  <svg id="myGraph"></svg>
+  <script>
+    d3.selectAll("button").on("click", function(){
+      //data-src속성을 읽음
+      var csvFile = this.getAttribute("data-src")
+
+      //csv파일 불러와서 그래프 그리기
+      d3.csv(csvFile, function(error, data){
+        var dataSet = [];
+        for(var i=0; i<data.length; i++){
+          
+          dataSet.push(data[i]["상품A"]);
+        }
+
+        //그래프 그리기
+        barRect = d3.select("#myGraph")
+          .selectAll("rect")
+          .data(dataSet)
+
+
+          //처음 생성할때 실행
+        barRect.enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("width", function(d,i){return d;})
+          .attr("height", 20)
+          .attr("x", 0)
+          .attr("y", function(d,i){
+            return i*25;
+          })
+
+          //갱신할때 실행
+        barRect.attr("width", function(d,i){
+          return d;
+        })
+          /*
+          요소가 삭제될때 실행
+          exit
+          remove
+          */
+          barRect.exit()
+                  .remove();
+
+        /*
+          selectAll()  작업할 요소를 지정
+          enter()      data(dataSet)지정된 데이터보다 생성된 객체가 부족할 때 객체를 메모리상태에 추가 하는 기능
+                       생성된 객체수 < 데이터의 개수 이면
+          append()     svg에 요소태그를 추가하는 화면에 추가하는 기능
+          exit()       생성된 객체수와 < 데이터의 개수 이면 불필요한 객체를 메모리에서 삭제
+          remove()     svg에 요소태그 화면에 삭제
+        */
+      });
+
+    })
+  </script>
+  
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width: 320px; height: 240px; border: 1px solid black;}
+        .bar{fill: orange;}
+    </style>
+</head>
+<body>
+    <h1>가로막대그래프</h1>
+    <div>
+        <button data-src="mydata1.csv">mydata1.csv 불러오기</button>
+        <button data-src="mydata2.csv">mydata2.csv 불러오기</button>
+        <button data-src="mydata3.csv">mydata3.csv 불러오기</button>
+
+    </div>
+    <svg id="myGraph"></svg>
+    <script>
+        d3.selectAll("button").on("click",function(){
+            //data-src속성을 읽음
+            var csvFile = this.getAttribute("data-src")
+
+            //csv파일 불러와서 그래프 그리기
+            d3.csv(csvFile, function(error, data){
+                var dataSet = [];
+                for(var i =0; i<data.length; i++){
+                    dataSet.push(data[i]["상품A"]);
+                }
+
+                //그래프 그리기
+                barRect = d3.select("#myGraph")
+                .selectAll("rect")
+                .data(dataSet)
+                
+                barRect.enter()
+                .append("rect")
+                .append("class","bar")
+                .attr("width", function(d,i){return d})
+                .attr("height",20)
+                .attr("x",0)
+                .attr("y",function(d,i){ return i*25})
+
+                barRect.attr("width",function(d,i){
+                    return d;
+                })
+            })
+        })
+    </script>
+</body>
+</html> -->

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width: 320px;height: 240px; border: 1px solid black;}
+        .pie{fill: orange; stroke: black;}
+    </style>
+</head>
+<body>
+    <h1>원 그래프</h1>
+    <svg id="myGraph"></svg>
+    <span id="arc"></span>
+    <script>
+        var svgWidth = 320;
+        var svgHeight = 240;
+        var _DataSet_ = [50,30,12,5,3];
+
+
+        //원 그래프 레이아웃
+        var pie =d3.layout.pie() //원그래프에서 쓸것은 layout의 pie()함수임
+
+        //원의 크기 안지름 바깥지름
+        var arc =d3.svg.arc().innerRadius(0).outerRadius(100);
+                            //innerRadius는 내부 원크기 outerRadius는 원 바깥 크기
+        // 그래프 데이터 초기화
+        var pieElements = d3.select("#myGraph")
+        .selectAll("path")
+        .data(pie(_DataSet_))  //데이터를 원 그래프에 적합하게 만든다 pie()함수에 데이터 값을 넣으면 비율만큼 그려주나봄
+    
+
+        //원그래프 요소 추가
+        pieElements.enter()
+        .append("path")
+        .attr("class","pie")
+        .attr("d", arc)
+        .attr("transform",`translate(${svgWidth/2},${svgHeight/2})`)
+
+        document.getElementById("arc").innerHTML = arc;
+    </script>
+</body>
+</html>

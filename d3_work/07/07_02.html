@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width: 320px;height: 240px;border: 1px solid black;}
+        .pie{fill: orange; stroke: white;}
+
+    </style>
+</head>
+<body>
+    <h1>원형 그래프 색지정</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        var svgWidth =320;
+        var svgHeight = 240;
+        var _dataSet_ =  [50,30,12,5,3]
+        //원그래프 좌표계산 레이아웃
+        var pie = d3.layout.pie()
+
+        //원그래프 패스계산
+        var arc= d3.svg.arc().innerRadius(0).outerRadius(100)
+
+        //원그래프 데이터 연결
+        var pieElements =d3.select("#myGraph")
+        .selectAll("path")
+        .data(pie(_dataSet_))
+
+        //부채꼴 생성
+        pieElements.enter()
+        .append("path")
+        .attr("class","pie")
+        .attr("d",arc)
+        .attr("transform",`translate(${svgWidth/2},${svgHeight/2})`)
+        .style("fill",function(dataset,index){
+            return ["red","orange","yellow", "cyan", "#3f3"][index]
+        })
+
+
+
+    </script>
+</body>
+</html>

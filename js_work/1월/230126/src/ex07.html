@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;            
+        }
+    </style>
+</head>
+<body>
+    <div id="my-div"></div>
+</body>
+</html>
+<script>
+    let tag= prompt('반지름을 입력하세요')  
+    let tag1 = ''
+    
+    tag1 +='<ul>'
+    tag1 +=`<li>입력한 반지름: ${tag}</li>`
+    tag1 +=`<li>원의 넓이:${3.14*tag*tag}</li>`
+    tag1 +=`<li>원의 둘레:${2*3.14*tag}</li>`
+    tag1 +='</ul>'
+    const $myDiv = document.getElementById('my-div')
+    $myDiv.innerHTML = tag1
+
+
+</script>

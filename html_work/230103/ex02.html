@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=checkbox]{
+            display: none; /* 체크박스를 감추고 대신 글자를 누르면 실행 */
+        }
+        h1:hover+p{
+            font-size: 2rem;
+        }
+        h1:hover~p{
+            background-color: sandybrown;
+        }
+        label{
+            background-color: orange;
+            padding: 1rem;
+            border-radius: 0.5rem; /* 굴곡 효과 주기*/
+        }
+        input:checked+label{
+            background-color: black;
+            color: white;
+        }
+        input:checked+p{
+            padding:2rem;
+        }
+        #input1p{
+            display: none;
+        }
+        #input1:checked~p{
+            display: block;
+        }
+    </style>
+</head>
+<body> 
+    <h1>Header-1</h1>
+    <input id="input" type="checkbox">
+    <label for="input">>input</label>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias distinctio eligendi nostrum animi atque dolor odio exercitationem neque ipsa, id consequatur alias aperiam eum, in iste perspiciatis? Hic, porro vel.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias distinctio eligendi nostrum animi atque dolor odio exercitationem neque ipsa, id consequatur alias aperiam eum, in iste perspiciatis? Hic, porro vel.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias distinctio eligendi nostrum animi atque dolor odio exercitationem neque ipsa, id consequatur alias aperiam eum, in iste perspiciatis? Hic, porro vel.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias distinctio eligendi nostrum animi atque dolor odio exercitationem neque ipsa, id consequatur alias aperiam eum, in iste perspiciatis? Hic, porro vel.</p>
+    <input id="input1" type="checkbox">
+    <label for="input1">>input</label>
+    <p id="input1p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi itaque recusandae nulla molestias natus veniam quas repellat. Inventore commodi tempore neque aspernatur debitis qui aut incidunt, culpa praesentium quas quidem!</p>
+</body>
+</html>

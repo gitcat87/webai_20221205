@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width:320px; height: 240px; border: 1px solid black;}
+        .bar{fill:orange;}
+    </style>
+    <script>
+        /*
+        datum() 데이터셋의 값을 지정할 수 있고
+        call() 사용자 정의 함수를 호출한다.
+        each() 데이터를 요소를 순회해서 처리할 수 있다.
+        */
+    </script>
+</head>
+<body>
+    <h1>요소와 데이터의 대응</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        d3.csv("mydata.csv", function(error,data){
+
+            var dataSet = [];
+            for(var i =0; i<data.length; i++){
+                dataSet.push(data[i].item1);
+                //요소와 데이터가 대응                
+            }
+            d3.select("#myGraph")
+            .selectAll("rect")
+            .data(dataSet)
+            .enter()
+            .append("rect")
+            .call(function(elements){
+                elements.each(function(d,i){
+                    console.log(`${i} = ${d}`)
+
+                })
+            }) 
+            .attr("x",0)
+            .attr("height",20)
+            .attr("y",function(d,i){return i*25})
+            .attr("width", function(d,i){return d;})
+        })
+    </script>
+</body>
+</html>

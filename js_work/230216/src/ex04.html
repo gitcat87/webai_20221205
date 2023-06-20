@@ -1,0 +1,25 @@
+<script>
+
+    //오류 예외처리에 관한 내용
+    const doA = () =>{
+    try{
+        console.log('aaa')
+        throw '강제 예외 발생 at try'
+        //throw는 강제로 예외를 발생시키는 예약어이다.
+        //willExcept.test();
+        console.log('bbb')
+
+        //'aaa'는 출력이 되지만 willExcept에서 오류가 발생하여 'bbb'는 출력이 되지 않는다. 오류가 발생한 지점에서 catch로 넘어가게 되며 catch를 수행하게 된다.
+        //catch를 수행하고 난 뒤 fianlly로 이동
+    }
+    catch (error){
+        console.log(error);
+        //return; 리턴을 만나게 되면 함수가 종료가 된다. 하지만 fianlly가 있다면 조기 종료를 하지 않고 fianlly까지 수행을 한다
+    }
+    finally{
+        console.log("프로그램 종료");
+        //만약 fianlly가 없이 console.log('프로그램 종료')만 적혀 있다면 함수 조기종료는 정상적으로 작동하게 된다.
+    }
+    }
+    doA();
+</script>

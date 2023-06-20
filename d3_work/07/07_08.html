@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+      svg {
+        width: 320px;
+        height: 240px;
+        border: 1px solid black;
+      }
+      .pie {
+        fill: orange;
+        stroke: white;
+      }
+      .total {
+        font-size: 8pt;
+        text-anchor: middle;
+      }
+      .pieNum {
+        font-size: 15pt;
+        color: white;
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>휴대전화 시장점유율</h1>
+    <svg id="myGraph"></svg>
+    <form>
+      <select name="" id="year">
+        <option value="2016">2016년</option>
+        <option value="2017">2017년</option>
+        <option value="2018">2018년</option>
+        <option value="2019">2019년</option>
+        <option value="2020">2020년</option>
+        <option value="2021">2021년</option>
+        <option value="2022">2022년</option>
+      </select>
+    </form>
+    <script>
+      function drawPie(filename) {        
+        d3.csv(filename, function (error, data) {
+          var dataSet = [];         
+          for (var i in data[0]) {
+            dataSet.push(data[0][i]);        
+          }         
+
+          //svg넓이 와 높이
+          var svgEle = document.getElementById("myGraph");
+          var svgWidth = window
+            .getComputedStyle(svgEle, null)
+            .getPropertyValue("width");
+          var svgHeight = window
+            .getComputedStyle(svgEle, null)
+            .getPropertyValue("height");
+
+         
+          //px문자열 제거
+          svgWidth = parseFloat(svgWidth);
+          svgHeight = parseFloat(svgHeight);
+          alert(svgWidth)
+          alert(svgHeight)
+
+          //원그래프 좌표계산하는 레이아웃
+          var pie = d3.layout.pie();
+
+          //호를 계산하는 arc생성
+          var arc = d3.svg.arc().innerRadius(30).outerRadius(100);
+
+          //원그래프에 데이터 바인딩
+          var pieElements = d3
+            .select("#myGraph")
+            .selectAll("g")
+            .data(pie(dataSet))
+            .enter()
+            .append("g")
+            .attr("transform", `translate(${svgWidth / 2},${svgHeight / 2})`);
+
+          //파이(부채꼴) 그리기
+          pieElements
+            .append("path")
+            .attr("class", "pie")
+            .style("fill", function (d, i) {
+              return ["$ff3344", "#ff7327", "#d3d2d5", "#0d0f0d"][i];
+            })
+            .transition()
+            .duration(500)
+            .delay(function (d, i) {
+              return i * 200;
+            })
+            .ease("linear")
+            .attrTween("d", function (d, i) {
+              var interpolate = d3.interpolate(
+                { startAngle: d.startAngle, endAngle: d.startAngle },
+                { startAngle: d.startAngle, endAngle: d.endAngle }
+              );
+              return function(t){return arc(interpolate(t))}
+            });
+
+        //합계 문자 표시
+        var textElements = d3.select("#myGraph")
+        .append("text")
+        .attr("class","total")
+        .attr("transform",`translate(${svgWidth/2},${svgHeight/2+5})`)
+        .text("점유율")
+
+        // 값표시
+        pieElements.append("text")
+        .attr("class","pieNum")
+        .attr("transform",function(d,i){
+            return `translate(${arc.centroid(d)})`
+        })
+        .text(function(d,i){return d.value})
+
+        });
+
+        
+      }
+      
+        d3.select("#year").on("change",function(){
+           
+            d3.select("#myGraph").selectAll("*").remove();
+            drawPie("mydata"+this.value+".csv",this.value)
+        })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- rect 사각형 -->
+<!-- circle 원형-->
+<!-- path 선?-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg{
+            width: 320px;
+            height: 240px;
+            border: 1px solid black;
+        }
+    </style>
+    <!--
+        태그문 path
+
+        선그리기는..
+        명령문은 D를 쓰고
+        좌표는 
+        M(m) : 위치 이동
+        L(l) : 선을 그릴때 사용하고
+        C(c) : 곡선을(베지어 곡선?) 그릴때 사용하고
+        A(a) : 타원과 호에 관련되서 쓰고
+        Z(z) : 도형닫기
+
+        대문자는 절대좌표 소문자는 상대좌표
+    -->
+</head>
+<body>
+    <h1>path(직선)</h1>
+    <svg border="1px solid black">
+        <path d="M10,50 L220,10 L200,200"/>
+        <path d="M10,50 L220,10 l200,200" fill="orange" opacity="0.5" stroke="blue"/>
+        <!-- 세번째 소문자 l의 기준점은 두번째 대문자 L의 위치-->
+    </svg>
+</body>
+</html>

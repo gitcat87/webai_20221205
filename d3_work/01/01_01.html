@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg{
+            width: 320px;
+            height: 240px;
+            border: 1px solid black;
+        }
+        rect{
+            fill: orange;
+            stroke:black;
+            stroke-width: 4px;
+        }
+        circle{
+            opacity: 0.75;
+            fill: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>svg로 도형그리기</h1>
+    <svg>
+        <rect x="10" y="20" width="180" height="160"/>
+        <circle cx="180" cy="140" r="80"/>
+    </svg>
+    <!-- x , y 상향 좌표 이며 cx cy는 circle 태그의 x,y좌표 r은 크기를 나타낸다(ratio인듯 비율)-->
+</body>
+</html>

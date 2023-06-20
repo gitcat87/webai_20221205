@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!--
+        배경색 fill
+        선색 stroke
+        선굵기 stroke-width
+    -->
+    <style>
+            svg{
+                width: 600px;
+                height: 240px;
+                border: 1px
+                        solid
+                        black;
+            }
+            #myGraph rect{
+                fill:rgb(0,150,30); /*붉은색 */
+                stroke: rgb(0,0,255); /*흑적색 */
+                stroke-width: 3px;
+            }
+    </style>
+</head>
+<body>
+    <h1>가로 막대그래프</h1>
+    
+    <svg id="myGraph" width="600">
+    </svg>
+    <button id="updateButton">데이터 업데이트</button>
+    <script>
+        var dataSet = [300,130,5,60,240];
+        d3.select("#myGraph")
+        .selectAll("rect")
+        .data(dataSet)
+        .enter()
+        .append("rect")
+        .attr("x",0)
+        .attr("y",(dataset,index)=>{ return index*25})
+        .attr("height",20)
+        .attr("width",(dataset,index)=>{return `${dataset}px`})
+
+        //버튼 이벤트 처리
+        d3.select("#updateButton")
+        .on("click",()=>{
+            dataSet= [20,230,150,10,20];
+            d3.select("#myGraph")
+            .selectAll("rect")
+            .data(dataSet)
+            .attr("width",(dataset,index)=>{return `${dataset}px`})
+        })
+
+    </script>
+</body>
+</html>

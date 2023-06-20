@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const $num1= document.querySelector('#num1');
+            const $num2= document.querySelector('#num2');
+            const $num3= document.querySelector('#num3');
+            const $num4= document.querySelector('#num4');
+            const $num5= document.querySelector('#num5');
+            const $p =  document.querySelector('p')
+            const $desc =  document.querySelector('#desc')
+            const $asc =  document.querySelector('#asc')
+
+
+            const nums = {};
+            console.log(nums);
+
+            const numsadd = (e) =>{
+                nums[e.currentTarget.id] = e.currentTarget.value;
+                console.log(nums);
+            }
+            $num1.addEventListener('keyup',numsadd)
+            $num2.addEventListener('keyup',numsadd)
+            $num3.addEventListener('keyup',numsadd)
+            $num4.addEventListener('keyup',numsadd)
+            $num5.addEventListener('keyup',numsadd)
+            
+            $desc.addEventListener('click',()=>{
+                console.log('내림차순 해야함');
+                const list  = [nums.num1,nums.num2,nums.num3,nums.num4,nums.num5];
+
+            
+            });
+            $asc.addEventListener('click',()=>{
+                console.log('오름차순 해야함');
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <div>
+        num1 = <input type="text" name="" id="num1">
+    </div>
+    <div>
+        num2 = <input type="text" name="" id="num2">
+    </div>
+        <div>
+        num3 = <input type="text" name="" id="num3">
+    </div>
+        <div>
+        num4 = <input type="text" name="" id="num4">
+    </div>
+        <div>
+        num5 = <input type="text" name="" id="num5">
+    </div>
+    <div>
+        <button id="desc">내림차순</button>
+        <button id="asc">오름차순</button>
+    </div>
+    <p></p>
+</body>
+</html>

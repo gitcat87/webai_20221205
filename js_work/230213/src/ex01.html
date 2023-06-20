@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 0.2rem;
+        }
+        input{
+            box-shadow: 0.2rem .2rem .2rem #333;
+            font-size: 1.8rem;
+            height: 2rem;
+        }
+        input:active{
+            box-shadow: 0.2rem .2rem .2rem aqua;          
+        }
+        
+        
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const $uppercase = document.querySelector('#uppercase');            
+            const $lowercase = document.querySelector('#lowercase');
+            const $input = document.querySelector('input')
+            const $p = document.querySelector('p')
+
+            /* (event) = (e) 와 같고 이벤트? 함수란다*/
+            const doUpperLower = (event) => { 
+                alert(`event.target.innerHTML  = ${event.target.innerHTML}`);
+                if('대문자'===event.target.innerHTML){
+                    let str1 = $input.value.toUpperCase();
+                    $p.innerHTML =str1;
+                }
+                else{
+                    let str1 =$input.value.toLowerCase();
+                    $p.innerHTML = str1;
+                }
+            }
+            $uppercase.addEventListener('click',doUpperLower);
+            $lowercase.addEventListener('click',doUpperLower);
+            $input.addEventListener('keyup',(e)=>{
+                if(e.keyCode === 13){
+                    alert('enter키 누름')
+                    let str1 = $input.value.toUpperCase();
+                    $p.innerHTML  = str1
+                }
+            });
+           
+
+            /*$uppercase.addEventListener('click',()=>{
+                alert(`input value = ${$input.value}`)
+                let str1 = $input.value.toUpperCase();
+                document.querySelector('p').style.color = "#ff0000"
+                $p.innerHTML = str1;
+            });
+            $lowercase.addEventListener('click',()=>{
+                alert(`input value = ${$input.value}`)
+                let str2 = $input.value.toLowerCase();
+                document.querySelector('p').style.color = "#ff0000"
+                $p.innerHTML = str2;
+            })*/
+
+           
+        })
+    </script>
+</head>
+<body>
+    <div>
+    <input type="text" name="" id="">
+    </div>
+    <button id="uppercase">대문자</button>
+    <button id="lowercase">쇼문자</button>
+    <p></p>
+</body>
+</html>

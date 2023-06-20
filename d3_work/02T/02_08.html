@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    svg{width:320px; height:240px; border:1px solid black}
+    rect{fill: orange}
+    .bar{fill: green;}
+  </style>
+  <script>
+    /*
+    
+    
+    
+    */
+  </script>
+
+
+</head>
+<body>
+  <h1>d3로 배열자료로 그래프그리기</h1>
+  <svg id="myGraph">
+    <rect />
+  </svg>
+  <button onclick="btnclick()">속성바꾸기</button>
+  <script>
+
+    function btnclick(){
+    var dataSet = [50,100,150,100,50];
+    d3.select("#myGraph")
+      .selectAll("rect")  //rect 요소를 지정
+      .data(dataSet)      //데이터를 요소에 연결
+      .enter()            //데이터  개수만큼 반복
+      .append("rect")     //데이터개수만큼 rect를 부모에 추가
+      .attr("class","bar")  //css클래스 지정
+      .attr("height", 20)   //높이지정
+      .attr("x", 0)         //x값지정
+      .attr("y",function(d,i){  //y값을 계산해서 지정
+        return i*25;
+      })    
+      .attr("width", function(d,i){  //width값을 데이터에서 계산해서 지정
+        return d;
+      })
+
+
+         
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,23 @@
+<script>class Retangle {
+    #width;
+    #height;
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+    getPerimeter() {
+        return 2 * (this.width + this.height);
+    }
+    getArea() {
+        return this.width * this.height;
+    }
+    print() {
+        console.log(`둘레는 ${this.getPerimeter()} 넓이는 ${this.getArea()}`);
+    }
+}
+const a = new Retangle(10, 20);
+a.print();
+a.width = -10;
+a.print();
+
+</script><script src="/ex04.fe6b6678.js"></script>

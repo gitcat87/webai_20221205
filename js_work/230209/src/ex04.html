@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const $a = document.querySelector('#a');
+            const $b = document.querySelector('#b');
+
+            $a.innerText ="<h1>안녕하세요</h1>" //textContent 또는 innerText로 하면 문자 그대로
+            $b.innerHTML ="<h1>안녕하세요</h1>" //innerHTML는 태그 적용 후 출력
+        })
+    </script>
+</head>
+<body>
+    <div id="a"></div>
+    <div id="b"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+    <h1>freeboard/updateform.html</h1>
+  
+    <form action="/freeboard/updateproc" method="post">
+        <input type="hidden" name="idx" value="{{res[0]}}"/>
+        <h3>제목</h3>
+        <input class="form-control" type="text" name="title" value="{{res[1]}}">
+        <h3>내용
+        <textarea name="content" class="form-control" style="height: 300px;">{{res[2]}}</textarea>
+        작성자
+        <input class="form-control" type="text" name="writer" value="{{res[3]}}">
+        <input class="btn btn-primary" type="submit" value="글수정">
+    </form>
+
+
+</div>
+
+{% endblock %}

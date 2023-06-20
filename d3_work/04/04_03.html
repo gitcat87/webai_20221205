@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width: 320px; height: 240px; border: 1px solid black;}
+        .bar{fill: orange;}
+    </style>
+</head>
+<body>
+    <h1>가로막대그래프</h1>
+    <div>
+        <button data-src="mydata1.csv">mydata1.csv 불러오기</button>
+        <button data-src="mydata2.csv">mydata2.csv 불러오기</button>
+        <button data-src="mydata3.csv">mydata3.csv 불러오기</button>
+
+    </div>
+    <svg id="myGraph"></svg>
+    <script>
+        d3.selectAll("button").on("click",function(){
+            //data-src속성을 읽음
+            var csvFile = this.getAttribute("data-src")
+
+            //csv파일 불러와서 그래프 그리기
+            d3.csv(csvFile, function(error, data){
+                var dataSet = [];
+                for(var i =0; i<data.length; i++){
+                    dataSet.push(data[i]["상품A"]);
+                }
+
+                //그래프 그리기
+                d3.select("#myGraph")
+                .selectAll("rect")
+                .data(dataSet)
+                .enter()
+                .append("rect")
+                .append("class","bar")
+                .attr("width", function(d,i){return d})
+                .attr("height",20)
+                .attr("x",0)
+                .attr("y",function(d,i){ return i*25})
+            })
+        })
+    </script>
+</body>
+</html> -->
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    svg{width:320px; height:240px; border:1px solid black;}
+    .bar{fill:orange;}
+  </style>
+</head>
+<body>
+  <h1>가로막대그래프</h1>
+  <div>
+    <button data-src="mydata1.csv">mydata1.csv 불러오기</button>
+    <button data-src="mydata2.csv">mydata2.csv 불러오기</button>
+    <button data-src="mydata3.csv">mydata3.csv 불러오기</button>
+
+  </div>
+  <svg id="myGraph"></svg>
+  <script>
+    d3.selectAll("button").on("click", function(){
+      //data-src속성을 읽음
+      var csvFile = this.getAttribute("data-src")
+
+      //csv파일 불러와서 그래프 그리기
+      d3.csv(csvFile, function(error, data){
+        var dataSet = [];
+        for(var i=0; i<data.length; i++){
+          dataSet.push(data[i]["상품A"]);
+        }
+
+        //그래프 그리기
+        d3.select("#myGraph")
+          .selectAll("rect")
+          .data(dataSet)
+          .enter()
+          .append("rect")
+          .attr("class", "bar")
+          .attr("width", function(d,i){return d;})
+          .attr("height", 20)
+          .attr("x", 0)
+          .attr("y", function(d,i){
+            return i*25;
+          })
+
+
+      });
+
+    })
+  </script>
+  
+</body>
+</html>

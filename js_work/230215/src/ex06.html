@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{background-color: #444; color:#e9e9e9; 
+            font-family:  Arial, Helvetica, sans-serif;}
+        #todo{line-height: 1.5rem; font-size: 1.5rem; height: 2rem;}
+        #add-button{
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: .3rem
+        }
+        span{ margin:0 .5rem;}
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const $input  = document.querySelector('input');
+            const $addButton  = document.querySelector('#add-button');
+            const $todoList  = document.querySelector('#todo-list');
+
+            let mykey=0;
+            const addItem = ()=>{
+                if($input.value.length===0){
+                    alert('할일을 입력하세요')
+                    return
+                }
+                mykey++;
+
+                const $childDiv = document.createElement('div');
+                const $childInput = document.createElement('input');
+                const $childSpan = document.createElement('span');
+                const $childButton = document.createElement('button');
+       
+                $childInput.type = 'checkbox';
+                $childInput.style.width ="30px";
+                $childInput.style.height ="30px";
+                $childInput.addEventListener('change',(e)=>{
+                    if(e.currentTarget.checked)
+                    $childSpan.style.textDecoration = 'line-through #ff0000'
+                    else
+                    $childSpan.style.textDecoration = '';                    
+                })
+                $childSpan.textContent = $input.value;
+
+                $childButton.textContent = "제거하기";
+                $childButton.addEventListener('click',(e)=>{
+                    //console.log(e.currentTarget.parentNode);
+                    console.log();
+                    const removekey = e.currentTarget.parentNode.getAttribute('data-key')
+                    const item = document.querySelector(`[data-key="${removekey}"]`)
+                    $todoList.removeChild(item);
+                })
+                
+
+                $childButton.style.float = "right"
+                $childDiv.style.maxWidth = "500px";
+                $childDiv.style.margin="0.25em";
+                $childDiv.style.padding="0.5rem";
+                $childDiv.style.border="1px solid #ffffff";
+                $childDiv.style.boxShadow ="0.1rem 0.1rem 0.1rem #e9e9e9"
+                $childDiv.setAttribute('data-key',mykey);
+                
+
+                $childDiv.appendChild($childInput);
+                $childDiv.appendChild($childSpan);
+                $childDiv.appendChild($childButton);
+                $todoList.appendChild($childDiv);
+
+                $input.value = '';
+
+            
+            }
+
+            $input.addEventListener('keyup',(e)=>{if(e.keyCode ===13) addItem();})
+            $addButton.addEventListener('click',()=>{ addItem();})
+            
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <h1>할일 목록</h1>
+        <input type="text" id="todo">
+        <button id="add-button">추가하기</button>
+        <div id="todo-list"></div>
+    </div>
+</body>
+</html>

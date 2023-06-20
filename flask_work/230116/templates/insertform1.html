@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+    *{
+        padding:0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    li{
+        list-style: none;
+        float: left;
+        padding-left: 20px;
+
+    }  
+    
+
+    a{
+        text-decoration: none;
+    }
+    ul{
+        overflow: hidden;        
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row pt-4" style="background-color: rgba(255, 214, 127, 0.815);">
+            <div class="col">
+                <h1><a href="/">애니멀 홈페이지</a></h1>
+            </div>
+            <div class="col">
+                <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6">
+                        <ul>
+                            <li><a href="insertform1">INSERT</a></li>
+                            <li><a href="#">SELECT</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </div>
+        <div class ="row" style="background-color: rgba(81, 177, 233, 0.26); height:500px;">
+            <div class="col m-5">
+            <form action="insertform">
+                <label for="name">이름</label>
+                <input type="text" name="nickname" id="" class="form-control" autofocus>
+                <label for="type">종류</label>
+                <input type="text" name="type" id="" class="form-control" autofocus>
+                <label for="age">나이</label>
+                <input type="text" name="age" id="" class="form-control" autofocus>
+                <label for="photo">사진</label><br/>
+                <input type="file" name="animalpic" class="form-control" autofocus>
+                <input type="submit" value="전송" class="btn btn-danger" autofocus>
+            </form>
+        </div>    
+        </div>
+        <div class="row pt-4" style="background-color: rgb(252, 119, 119); height:100px; text-align: center;">
+            <h1 style=font-size:30px; >copyrightⓒ 2008 All rights reserved by Choi</h1>
+        </div>
+    </div>
+</body>
+</html>

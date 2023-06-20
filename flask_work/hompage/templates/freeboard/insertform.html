@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+
+{%block content%}
+<div class="container">
+    <h1>freeboard/insertform.html</h1>
+
+    <form action="/freeboard/insertproc" method="post">
+        <h3>제목</h3>
+        <input class="form-control" type="text" name="title" id="">
+        <h3>내용
+        <textarea name="content" class="form-control" style="height: 300px;"></textarea>
+        작성자
+        <input class="form-control" type="text" name="writer" id="">
+        <input class="btn btn-primary" type="submit" value="글작성">
+    </form>
+
+
+</div>
+
+{% endblock %}

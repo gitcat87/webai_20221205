@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>세로막대그래프 줄여서 세.막.그</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg{width:520px; height:360px; border:10px solid black; background-color: rgb(152, 229, 231);}
+        .bar{fill:orange; }
+        .barNum{font-size: 9pt; text-anchor: middle;}
+        .axis text{font-family: sans-serif; font-size: 11px;}
+        .axis path, .axis line{fill:none; stroke:black;}
+        .axis_x line{fill:none; stroke:black}
+        .barName{font-size: 9pt; text-anchor: middle;}
+    </style>
+</head>
+<body>
+    <h1>세로막대그래프</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        d3.csv("mydata10.csv",function(error,data) 
+        {
+            var _DataSet = []; //데이터를 저장할 배열
+            var lableName = []; //레이블을 넣을 배열
+
+            for(var i in data[0]){  //csv파일의 첫부분은 header영역으로 취급된다 따라서 두번째 줄부터 배열의 처음인 0번째부터다
+                _DataSet.push(data[0][i]);
+                lableName.push(i);
+            }
+           // alert(dataSet);
+           // alert(lableName);
+           // SVG가로세로값을 DOM함수로 읽어오기
+           var svgEle = document.getElementById("myGraph");
+           var svgWidth = window.getComputedStyle(svgEle, null).getPropertyValue("width");
+           var svgHeight = window.getComputedStyle(svgEle,null).getPropertyValue("height");
+          
+           svgWidth = parseFloat(svgWidth);
+           svgHeight = parseFloat(svgHeight);
+           
+          
+           //그래프 좌표계산을 위한 변수선언
+           var offsetX = 30;    //세로눈금영역
+           var offsetY = 20;    //가로축 레이블 영역
+           var barElements;     //막대바 요소
+           var dataMax =300;    //데이터의 최대값 눈금자 만들대 사용
+           var barWidth = 30;   //막대바의 폭
+           var barMargin = 20;   //막대바의 간격
+
+           //그래프 데이터 초기화
+           barElements =  d3.select("#myGraph")
+           .selectAll("rect")
+           .data(_DataSet)
+
+           //바를 그리기
+          barElements.enter()
+                    .append("rect")
+                    .attr("class","bar")
+                    .attr("height",0)
+                    .attr("width",barWidth)
+                    .attr("x",function(dataset,index){
+                        return index *(barWidth +barMargin) + offsetX;
+                    })
+                    .attr("y",svgHeight - offsetY)
+                    .on("mouseover",function(){
+                        d3.select(this)
+                        .style("fill","red")
+                    })
+                    .on("mouseout",function(){
+                        d3.select(this)
+                        .style("fill","orange")
+                    })
+                    .transition()
+                    .duration(1000)
+                    .delay(function(dataset,index){return index*100;})
+                    .attr("y",function(dataset,index){
+                        return svgHeight - dataset - offsetY;
+                    })
+                    .attr("height",function(dataset,index){return dataset})
+            //값 표시하기
+            barElements.enter()
+            .append("text")
+            .attr("class","barNum")
+            .text(function(dataset,index){return dataset})
+            .attr("x",function(dataset,index)
+            {return index*(barWidth+barMargin)+offsetX+(barWidth/2)})
+            .attr("y",svgHeight-offsetY)
+            .transition()
+            .duration(1000)
+            .delay(function(dataset,index){return index*100})
+            .attr("y",function(dataset,index){
+                return svgHeight -dataset - offsetY -10
+            })
+            .style("font-size","30px")
+            .style("fill","red")
+            .style("font-family","impact")
+            .transition()
+            .duration(1000)            
+            .style("font-size","20px")
+            
+
+            //눈금을 위한 축척설정
+            var yScale =  d3.scale.linear()
+            .domain([0,dataMax])
+            .range([dataMax,0])
+
+            //세로눈금표시
+            d3.select("#myGraph")
+            .append("g")
+            .attr("class","axis")
+            .attr("transform",`translate(${offsetX},${(svgHeight-dataMax)-offsetY})`)
+            .call(
+                d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+            )  
+
+            //가로축 그리기
+            d3.select("#myGraph")
+            .append("rect")
+            .attr("class","axis_x")
+            .attr("width",svgWidth)
+            .attr("height",1)
+            .attr("transform",`translate(${offsetX},${(svgHeight-offsetY)})`)
+
+                //레이블 표시
+        barElements.enter()
+        .append("text")
+        .attr("class","barName")
+        .attr("x",function(dataset,index){
+            return index*(barWidth+barMargin)+offsetX +(barWidth/2)})
+        .attr("y", svgHeight - offsetY + 15)
+        .text(function(dataset,index){
+            return lableName[index]
+        })
+
+        })
+
+    
+
+    </script>
+</body>
+</html>

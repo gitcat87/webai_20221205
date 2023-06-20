@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        li{
+            list-style-type: none;
+        }
+        a:visited{
+            color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+        body{
+            width:980px;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <!-- <script>
+        const body = document.querySelector('body');
+        const comBody = window.getComputedStyle(body)
+        consloe.log(comBody.fontSize);
+    </script> -->
+    <header id="main_header">
+        <h1 class="logo">
+            <a href="#"><img src="img/title.png"></a>
+        </h1>
+    <div class="login_menu">
+        <span><a href="#">로그인</a></span>
+        <span><a href="#">회원가입</a></span>
+        <span><a href="#">고객센터</a></span>
+    </div>
+    </header>
+    <style>
+        #main_header{
+            position: relative;
+            height: 4rem;
+            background-color: aqua;
+        }
+        #main_header >h1.logo{
+            position: absolute;
+            left: 0.8rem; top: 0.5rem;
+        }
+        #main_header > div.login_menu{
+            position: absolute;
+            right:0.8rem; top:0.5rem;}
+    </style>
+    <aside id="global_aside">
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+        <a href="#"><img src="https://via.placeholder.com/90x160"/></a>
+    </aside>
+    <style>
+        #global_aside{
+            position: absolute;
+            left: 980px;
+            width: 90px;
+        }
+    </style>
+    <div id="top_gnb">
+        <div class="menu item_1 active"></div>
+        <div class="menu item_2 "></div>
+        <div class="menu item_3 "></div>
+        <div class="menu item_4 "></div>
+        <div class="menu item_5 "></div>
+        <div class="menu item_6 "></div>
+        <div class="menu item_7 "></div>
+    </div>
+    <style>
+        #top_gnb{
+            overflow:hidden;
+        }
+        #top_gnb>div.menu{
+            float: left;
+            width:140px; height: 50px;
+            background-image: url('img/top_gnb.png');
+        }
+        #top_gnb>div.item_1{background-position: 0 0px;}
+        #top_gnb>div.item_2{background-position: 0 -50px;}
+        #top_gnb>div.item_3{background-position: 0 -100px;}
+        #top_gnb>div.item_4{background-position: 0 -150px;}
+        #top_gnb>div.item_5{background-position: 0 -200px;}
+        #top_gnb>div.item_6{background-position: 0 -250px;}
+        #top_gnb>div.item_8{background-position: 0 -300px;}
+    </style>
+     <div id="bottom_gnb">
+        <div><h1>메뉴1</h1></div>
+        <div><h1>메뉴2</h1></div>
+        <div><h1>메뉴3</h1></div>
+        <div><h1>메뉴4</h1></div>
+        <div><h1>메뉴5</h1></div>
+        <div><h1>메뉴6</h1></div>
+        <div><h1>메뉴7</h1></div>
+        <div><h1>메뉴8</h1></div>
+    </div>
+    <style>
+        #bottom_gnb{
+            display: flex;
+            justify-content: space-evenly; /* 가로정렬 할 때*/
+        }
+        #bottom_gnb > div:hover{
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+    <div id="wrap">
+        <div id="section">
+            <img src="https://via.placeholder.com/680x300">
+        </div>
+        <div id="article">
+            <img src="https://via.placeholder.com/280x300">
+        </div>
+    </div>
+    <style>
+        #wrap{display: flex; justify-content: space-evenly;}
+    </style>
+    <div id="wrap">
+        <div id="section">
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem eveniet maiores eligendi eius iste velit minus dicta ex itaque necessitatibus! Eius atque vel blanditiis dicta voluptate perferendis excepturi, sed recusandae?</p>>
+        </div>
+        <div id="article">
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta incidunt, beatae dolor id autem repudiandae odit delectus ex quae provident blanditiis dolore voluptatum nihil harum vero corrupti culpa corporis quasi?</p>        
+        </div>
+    </div>
+    <style>
+        #wrap{display: flex; justify-content: space-evenly;}
+    </style>
+</body>
+</html>

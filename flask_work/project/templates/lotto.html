@@ -1,0 +1,170 @@
+{% extends "base.html" %} {%block video1%}
+<script>
+  setTimeout(() => {
+    document.body.classList.add("reveal");
+  });
+</script>
+<div id="loader" style="z-index: 2">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="bg-overlay"></div>
+<video src="static/videos/video2.mp4" autoplay muted loop id="bgvid-01"></video>
+
+{%endblock%} {% block lotto%}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const $h1 = document.querySelector("#lotto-title");
+    const $nums = document.querySelectorAll(".number");
+
+    setInterval(() => {
+      $h1.style.color = "red";
+      $h1.style.fontsize;
+    }, 100);
+    setInterval(() => {
+      $h1.style.color = "green";
+    }, 200);
+
+    setInterval(() => {
+      $h1.style.color = "orange";
+    }, 300);
+    $nums.forEach(num => {
+      num.addEventListener("mouseover", e => {      
+        e.target.style.color = 'red'
+      });
+        num.addEventListener("mouseout", e => {      
+        e.target.style.color = 'white'
+      });
+       
+    });
+  });
+</script>
+<style>
+  .lotto-body {
+    display: flex;
+    margin-left: 11rem;
+  }
+  .lotto-body > div {
+    border-radius: 4rem 4rem 4rem 4rem;
+    border: 3px solid white;
+    padding-top: 10px;
+    font-size: 50px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin-left: 5rem;
+  }
+  .lotto-body > div:hover {
+    background-color: rgb(116, 165, 44);
+    transition-duration: 0.5s;
+  }
+  .lotto-body > h1 {
+    padding-left: 5rem;
+    color: white;
+    font-size: 5rem;
+  }
+  #lotto-div > h1 {
+    background-color: rgba(255, 288, 196, 0.8);
+    width: 500px;
+    color: bisque;
+    display: inline-block;
+    border-radius: 2rem 2rem 2rem 2rem;
+    margin-bottom: 1rem;
+  }
+
+  form{
+    margin-top: 0.2rem;
+    
+  }
+  input{
+    text-align: center;
+    width: 50px; height: 50px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    margin-left: 4rem;
+    font-size: 20px;
+  }
+  .check>h1{
+    font-size: 32px;
+    text-align: left;
+  }
+</style>
+<div id="lotto-div">
+  <h1 id="lotto-title">GET YOUR LUCKY ON THIS WEEKEND!</h1>
+</div>
+<div class="lotto-body">
+  <div class="number">{{number[0]}}</div>
+  <div class="number">{{number[1]}}</div>
+  <div class="number">{{number[2]}}</div>
+  <div class="number">{{number[3]}}</div>
+  <div class="number">{{number[4]}}</div>
+  <div class="number">{{number[5]}}</div>
+  <h1>+</h1>
+  <div>{{bonus[0]}}</div>
+</div>
+<br/>
+<br/>
+<div class="lotto-body1" style="width:100%">
+    <div style="width:70%; float:left">
+    <form action="/lotto1" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="확인">
+
+    </form>
+        <form action="/lotto2" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="확인">
+    </form>
+        <form action="/lotto3" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="확인">
+    </form>
+        <form action="/lotto4" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="확인">
+    </form>
+        <form action="/lotto5" method="POST">
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <input type="text" name="num3">
+        <input type="text" name="num4">
+        <input type="text" name="num5">
+        <input type="text" name="num6">
+        <input type="submit" value="확인">
+    </form>
+    </div>
+<div class="check" style="width:30%; float:left;">
+    <h1 style="color:white">111</h1>
+    <h1 style="color:white">111</h1>
+    <h1 style="color:white">111</h1>
+    <h1 style="color:white">111</h1>
+    <h1 style="color:white">111</h1>
+    <h1 style="color:white">111</h1>
+</div>
+</div>
+{% endblock%}

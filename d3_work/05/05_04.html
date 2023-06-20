@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <!--
+        배경색 fill
+        선색 stroke
+        선굵기 stroke-width
+    -->
+    <style>
+            svg{
+                width: 600px;
+                height: 240px;
+                border: 1px
+                        solid
+                        black;
+            }
+            #myGraph rect{
+                fill:rgb(200,150,30); /*붉은색 */
+                stroke: rgb(0,0,255); /*흑적색 */
+                stroke-width: 3px;
+            }
+    </style>
+</head>
+<body>
+    <h1>D3js로 여러 사각형 그리기</h1>
+    <svg id="myGraph" width="600">
+    </svg>
+    <script>
+        var dataSet = [300, 130, 5, 60, 240];
+        d3.select("#myGraph") //id가 myGraph 요소를 선택 선택자
+        .selectAll("rect")      //두가지의 의미가 있는거 같다. 1. 현재 상태에서 rect객체를 모두 선택, 2. 작업모드를 rect
+        .data(dataSet)          //dataSet을 데이터소스로 사용함
+        .enter()                //현재 선택된 rect객체수 dataSet수와 비교해서 
+        .append("rect")       //myGraph에 rect를 추가
+        .attr("x", 0)         //추가된 rect x 속성값을 0
+        .attr("y", (dataset,index)=>{return index*25})         //추가된 rect y 속성값을 0
+        .attr("width",(dataset,index)=>{return `${dataset}px`})    //추가된 rect width 속성값을 300
+        .attr("height", 20)   //추가된 rect height 속성값을 20
+
+    </script>
+</body>
+</html>

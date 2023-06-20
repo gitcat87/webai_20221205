@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="number" id="input-number">
+    <button id="btn">확인</button> <!-- onclick ="doA()" 함수 호출 방식이 옛날 방식-->
+    <div id="print-div">
+        
+    </div>
+<script src="/ex02.57de9bc7.js"></script></body>
+</html>
+<script>const $inputNumber = document.getElementById("input-number");
+const $btn = document.getElementById("btn");
+const $printDiv = document.getElementById("print-div");
+$btn.addEventListener("click", function() {
+    switch($inputNumber.value % 2){
+        case 0:
+            $printDiv.innerHTML = "짝수입니다";
+            break;
+        case 1:
+            $printDiv.innerHTML = "홀수입니다";
+            break;
+        default:
+            break;
+    }
+}); //addEventListener가 요새 방식
+
+</script>

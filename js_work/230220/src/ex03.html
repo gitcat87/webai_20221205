@@ -1,0 +1,36 @@
+<script>
+  class Retangle {
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+
+    getPerimeter() {
+      return 2 * (this.width + this.height);
+    }
+    getArea() {
+      return this.width * this.height;
+    }
+  }
+  //extends Retangle Retanlge 객체까지 사용하겠습니다.
+  class Square extends Retangle{
+    constructor(length){
+        if (length < 0) throw 'length는 0보다 작을 수 없습니다.'
+        //또는 throw 오류 명령어
+        super(length,length)
+    }
+  }
+  const a = new Square(10);
+  const b = new Retangle(20,30);
+  try{
+    const c = new Square(-30);
+  }catch(e){
+    console.log(e);
+  }
+  //오류는 건너뛰고 콘솔로그 출력하기
+  console.log(`a.getPrimeter = ${a.getPerimeter()} a.getArea = ${a.getArea}`)
+  console.log(`b.getPrimeter = ${b.getPerimeter()} b.getArea = ${b.getArea}`)
+  console.log(`c.getPrimeter = ${c.getPerimeter()} c.getArea = ${c.getArea}`)
+
+
+</script>

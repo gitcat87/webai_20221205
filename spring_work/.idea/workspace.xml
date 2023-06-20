@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1fd3f18c-8ea4-4d5e-9e81-a028c68e331d" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/../rn_work/test/eas.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/controller/BBoardApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/controller/BoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/controller/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/controller/MemberApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/controller/VacationApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/model/BaseTimeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/model/Board.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/model/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/model/Vacation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/repository/BoardRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/repository/VacationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/test/AA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/java/com/kb/org/test/BB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/resources/templates/Board.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/resources/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/org/src/main/resources/templates/member.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2차과제_2023년3월_웹기반 AI개발자_최대현/components/db/freeboardmanage.py" beforeDir="false" afterPath="$PROJECT_DIR$/../2차과제_2023년3월_웹기반 AI개발자_최대현/components/db/freeboardmanage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2차과제_2023년3월_웹기반 AI개발자_최대현/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../2차과제_2023년3월_웹기반 AI개발자_최대현/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CHDH/sqldeveloper-21.4.3.063.0100-x64/sqldeveloper/sqldeveloper/extensions/oracle.datamodeler/log/datamodeler.log" beforeDir="false" afterPath="$PROJECT_DIR$/../CHDH/sqldeveloper-21.4.3.063.0100-x64/sqldeveloper/sqldeveloper/extensions/oracle.datamodeler/log/datamodeler.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/ex14_usecontext/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/ex14_usecontext/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/back/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/back/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/back/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/back/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/back/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/back/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/back/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/front/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/front/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/src/components/Book.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/src/components/FreeBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../react_work/mypro/front/src/components/FreeBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../react_work/mypro/front/src/components/MyNav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../work.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/lotto3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/lotto3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/lotto4.py" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/lotto4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/lotto4.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/lotto4.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/program.py" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/program.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/totalnum.py" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/totalnum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../로또발표/lotto/totalnum.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../로또발표/lotto/totalnum.xlsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2RPD0EGdaBNOkQQBpj2fV7A6EZo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/work/spring_work/org"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="1fd3f18c-8ea4-4d5e-9e81-a028c68e331d" name="변경" comment="" />
+      <created>1687142597721</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687142597721</updated>
+    </task>
+    <servers />
+  </component>
+</project>

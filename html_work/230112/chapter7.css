@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Gugi&family=PT+Sans+Narrow:wght@700&family=Rowdies:wght@300&family=Seymour+One&family=Shadows+Into+Light&family=Signika+Negative:wght@700&display=swap');
+    
+*{
+    font-family: 'East Sea Dokdo', 'cursive';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+li{
+    list-style-type: none;
+}
+a:visited{
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+#main_header{
+    height: 60px;
+    line-height:60px;
+    padding-left: 0.5em;
+
+    border-bottom: 1px solid black;
+
+    background-color: #98afde;
+}
+#main_gnb{
+    background-color: #c9c9c9;
+    overflow: hidden;
+    border-bottom: 1px solid black;
+    height: 50px;
+    line-height: 50px;
+}
+#main_gnb>.left{
+    float: left;
+    overflow: hidden;
+}
+#main_gnb>.left>li{
+    float: left;
+    border-right: 1px solid black;
+    padding: 0 0.5rem;
+
+}
+#main_gnb>.right{
+    float: right;
+    overflow: hidden;
+  
+}
+#main_gnb>.right>li{
+    float: right;
+    padding: 0 0.5rem;
+    border-left: 1px solid black;
+
+}
+#content_wrap{
+    overflow: hidden;
+    background-color: #98afde;
+}
+#content_wrap>div{
+    float: left;
+}
+#content_left{
+    width: 200px;
+    min-height: 400px;
+}
+#content_left>ul>li{
+    height: 40px;
+    list-style: 4px;
+    padding-left: 10px;
+    border-bottom: 1px solid black;
+}
+#content_left>li:nth-child(n){
+    background-color: #98afde;
+}
+#content_left>li:nth-child(2n){
+    background-color: #c9c9c9;
+}
+#content_right{
+
+    width: 100%;
+    margin-right: -200px;
+}
+#content_right > div{
+    padding-left: 1rem;
+    padding-right: 200px;
+}

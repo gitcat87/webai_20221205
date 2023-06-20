@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <script src="http://d3js.org/d3.v3.min.js"></script>
+  <style>
+    svg{width:320px; height:240px; border:1px solid black}
+    rect{fill: orange}
+    .bar{fill: green;}
+  </style>
+    <script>
+        /*
+
+        */
+    </script>
+</head>
+<body>
+    
+    <h1>d3로 외부자료 text로 그래프 그리기</h1>
+    <svg id="myGraph"></svg>
+    <script>
+        d3.text("mydata.txt",function(error,data){
+            /*
+            200 파일 연결 성공
+            400 올바르지 않은 요청
+            403 열람 거부
+            404 파일 없음
+            alert(error.status)
+            */
+            
+            var dataSet =[];//---------- 추가된 부분 ----------
+            alert("data:"+data);                            //
+            var line = data.split("\x0a"); //Ox0a 줄바꿈코드 줄바꿈 순서로 바꾸라는건데 그냥 "\n" 해도 된다 //
+            alert("line"+line)                              //
+            var sales = line[0].split("/")                  //
+            alert("sales"+sales);                           //
+                                                            //
+                                                            //
+            for(var i=1; i<sales.length; i++){              //
+                alert("push("+i+"):"+sales[1])              //
+                dataSet.push(sales[i]);                     //
+                                                            //
+            }//----------------------------------------------                                         
+       
+        //이걸 실행하게 되면 dataset에 mydata.tsv에 있는
+        //item1 칼럼의 값만 dataset에 저장하게 된다..
+
+        //그래프 그리기
+        d3.select("#myGraph")
+        .selectAll("rect") //렉트 자료형 선택
+        .data(dataSet) //데이터에 dataset 넣고
+        .enter()    //데이터 만들기 실행
+        .append("rect") //rect만들기
+        .attr("class","bar") //css 클래스 지정
+        .attr("height",20)
+        .attr("x",0)
+        .attr("width",function(d,i){
+            return d;
+        })
+        .attr("y",function(d,i){
+            return i*25;
+        })
+
+         })
+    </script>
+</body>
+</html>

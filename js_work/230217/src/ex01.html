@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',(event)=>{
+            const $input = document.querySelector('input')
+            const $button =  document.querySelector('button')
+            const $h1 =document.querySelector('#output')
+            const $form =document.querySelector('form')
+            const $h3 =document.querySelector('h3')
+
+            const list = [];
+            // Maht.Random()은 0 ~ 1 사이에 랜덤한 숫자가 나온다 소수점으로
+            const randomValue = parseInt(Math.random()*100+1)
+            //각 항에 100을 (0과 1에) 곱했고 그럼 99까지 나올때 1을 더하면 1부터 100(101전)까지 출력이 된다
+            //parseInt로 숫자를 정수형으로 만든다 그렇게 해서 콘솔로그로 출력을 해보자
+            //또는 Math.Floor로 감싸주면 소수점을 제거 할 수 있다.
+            console.log(`randomValue = ${randomValue}`)
+            $button.addEventListener('click',(e)=>{
+                e.preventDefault();
+
+                if($input.value.length === 0){alert(`값을 입력하세요`); return;}
+
+                list.push($input.value);//리스트 안에다가 추가해서 넣습니다
+                $h1.innerHTML = `랜덤값 = ${randomValue}`;
+                $h1.innerHTML += `<br>${list.join(",")}`; //,을 통해 서로 나누고 붙여줍니다.
+                //alert('form 서브밋 되면 경로 이동되면서 파라메타 가지고 감...');
+                //$form.submit();
+
+                if(randomValue > parseInt($input.value))                    
+                    $h3.textContent = 'higher'
+                else if(randomValue < parseInt($input.value))
+                $h3.textContent = 'lower'
+                else
+                $h3.textContent = `congratulations, you are right ${list.length} times`;
+                
+                if(list.length === 10){                   
+                    $input.setAttribute('disabled', 'true')
+                    $button.setAttribute('disabled','true')
+                    $h3.textContent=`you dont have chance ${list.length} times.`
+                    $h3.style.color = '$c00'
+                }
+                if(randomValue == parseInt($input.value)){
+                    $input.setAttribute('disabled', 'true')
+                    $button.setAttribute('disabled','true')
+                    $h3.textContent=`you have got the right answer`
+                    $h3.style.color = '#00ff00'
+                }
+                
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <h1>숫자 맞추기 게임</h1>
+    <p>랜덤한 숫자 1~100 맞추기 게임입니다. 10번의 시도를 할 수 있습니다</p>
+    <label for="숫자입력"></label>
+    <input type="text">
+    <form action="aa">
+        <button>입력</button>
+    </form>
+    <h1 id="output"></h1>
+    <h3></h3>
+</body>
+</html>

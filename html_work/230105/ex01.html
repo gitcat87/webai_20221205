@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        #container {
+            margin: 0 auto;
+            height: 100vh;
+            width: 600px;
+            background-color: #cfcfcf;
+            background-image: url('/images/aa.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: bottom;
+            background-size: 50%;
+
+        }
+
+        #container>h1 {
+            margin: 0 1rem;
+            /*상하 좌우*/
+            background-color: #aaa;
+        }
+
+        #sub_container {
+            background-color: #ccc;
+            position: relative;
+            height: 150px
+        }
+
+        #rightup {
+            top: 1rem;
+            right: 0;
+            background-color: #ddd;
+            position: absolute;
+        }
+
+        #leftdown {
+            bottom: 1rem;
+            background-color: #ddd;
+            position: absolute;
+        }
+
+        #sub_container2 {
+            background-color: #aaaaaa; /*원래 6개 줌 3개만 쳐도됨*/
+            overflow: hidden;
+        }
+
+        #sub_sub_container {
+            float: right;
+        }
+        #sub_sub_container>ul>li{
+            display: inline-block;
+            background-color: #ddd;
+            margin : 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    1.div 자손태그에 postion absolute
+    부모태그에 height, postion relative
+        높이, 기준
+    2.float : left, float : right 주면
+        부모태그에 overflow : hidden을 줘야한다.
+-->
+    <div id="container">
+        <h1>header -1</h1>
+        <div id="sub_container">
+            <div id="rightup">
+                <h1>오른쪽위에 가야함</h1>
+            </div>
+            <div id="leftdown">
+                <h1>왼쪽 밑에 가야함</h1>
+            </div>
+        </div>
+        <div id="sub_container2">
+            <div id="sub_sub_container">
+                <ul>
+                    <li>
+                        <h2>하나</h2>
+                    </li>
+                    <li>
+                        <h2>둘</h2>
+                    </li>
+                    <li>
+                        <h3>셋</h3>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>       
+    svg{
+        width:520px;
+        height:540px;
+        border:1px solid black;
+    }
+    </style>
+    <!--
+        태그문 path
+
+        선그리기
+        D
+
+        좌표 
+        M(m) : 좌표만 이동
+        L(l) : 선을 그릴때 사용
+        C(c) : 곡선(베지어곡선)
+        A(a) : 타원 호
+        Z(z) : 도형닫기
+        대문자: 절대좌표, 소문자: 상대좌표
+
+        스타일 속성
+        fill  : 배경색
+        stroke : 선색
+        stroke-width : 선 굵기
+        opacity : 투명도 오빠시티
+
+        문자열 속성
+        font-family : 글꼴
+        font-size : 글자크기
+        font-weight : 글자 굵기
+
+        문자열 정렬<text-anchor>
+        start       :좌측정렬 
+        middle      :중앙정렬
+        end         :우측정렬
+
+        도형그룹
+        g(group)
+
+        group을 이동시에
+        transform: translate(x,y)
+                    rotate(회전각도,x,y)
+                    scale(배율)
+    -->
+    <style>
+        rect{
+            fill: blue;
+            stroke: rgb(0,255,255);
+            stroke-width: 5px;
+        }
+        #box{
+            fill:yellow;
+            stroke: rgb(0,255,255);
+            stroke-width: 5px;
+        }
+        .box{
+            fill:red;
+            stroke: bisque;
+            stroke-width: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>도형화그룹 예제(확대)</h1>
+    <svg>
+        <g style="opacity: 1;" transform="scale(2.0)">
+            <rect x="0" y="50" width="100" height="80"/>
+        <text x="0" y="50"  text-anchor="start" style="fill:black; font-weight: bold;">묶여진 글자</text>
+    </g>
+     
+    </svg>
+    
+</body>
+</html>
