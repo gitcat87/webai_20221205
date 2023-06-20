@@ -1,0 +1,28 @@
+<!-- github 사용법 --!>
+
+파일의 버전을 효율적으로 관리하기 위해서 Git을 사용한다.
+파일을 저장하는 공간을 repository
+
+1. repository 생성방법
+mypage - > repositories -> new -> 적당히 내용을 적고 ->
+ private(개인적) , public(공용) 보통은 public을 사용 -> readme도 보통 사용한다 -> create repository -> 생성완료
+
+2. 로컬저장소와 git repository간의 업로드
+바탕화면에 폴더를 하나 만든다 -> 연결할 폴더에서 우클릭을 눌러 git bash 클릭-> prompt 창 열림 -> git init 입력 -> 
+숨김 파일 하나 생성(.git) .git이 있어야 git repository와 연결을 할 수 있다
+없을시 없다고 에러가 만들어짐 -> 다시 연결할 repository로 가서 -> code버튼을 클릭 ->
+https 주소 복사 -> 다시 prompt 창으로 와서 -> git clone [복사한 http주소] -> 로컬저장소 연결할 폴더에 git repository의 클론 폴더가 생성이 됨
+
+
+3. 파일 업로드
+클로닝 된 폴더에 아무거나 만들어보자(메모장 파일 같은거) 이제 gitbash를 통해 업로드(push)를 해보자 -> git add . -> . 또는 * (모두 올린다는 뜻) 입력 후 아무것도 뜨지 않아야 정상 작동
+->git commit -m "보낼 메세지" -> git push [복사한 http주소] -> repository에 파일이 추가 된 것을 확인 할 수가 있다.
+
+
+3. 파일 다운로드
+git pull [복사한 http주소] [브랜치 이름]
+
+
+4. 브랜치 만들기
+버전 관리를 위해서 브랜치가 존재한다. 브랜치를 만들어보자
+git branch [만들 브랜치 이름] -> git checkout [바꿀 브랜치 이름]
