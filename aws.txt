@@ -1,0 +1,216 @@
+aws 로그인 => EC2 =>
+예약 인스턴스 = 1년단위로 계약 => t4.nano가 제일 싼거지 싶은데 지금 6월 13일 기준으로는 10만원=> on demand(쓴만큼 낸다)
+시작 템플릿 ?  뭐 어떻게 하겠다. linux=> 2개 3개
+스팟 요청 => 시간 별로 서버 스케일 줄이고 늘리기?
+용량 예약 => 디스크 용량 얼마 하겠다
+AMI => 인스턴트 백업? 아마존에서 제공해주는..
+EBS => 리눅스 백업 시기를 정해주는 것
+보안그룹 => 포트 여는 것
+탄력적 IP=> 고정IP하면 돈내고
+키페어=> 
+
+로드 밸런싱 => EC2 두개 가져다 놓고 홀수 아이피 들어오면 이쪽 리눅스 응답해라 짝수 들어오면 이쪽 리눅스 서버 응답해라 그런거
+오토 스케일링 => 상황에 따라 서버 스케일 변경
+
+결제 대시보드=> 여기 들어가면 요금이 얼마 들어가고 있다 나오고
+
+
+나는 다른사람에게 계정을 제공해서 나의 AWS계정 사용을 같이 하고 싶다면 IAM계정을 쓰면 되고 없으면 검색에 IAM검색 하면 나옴
+그래서 정책에 들어가면 계정마다 권한을 부여 할 수 있다. 읽기전용 접속만 등등
+
+인스턴스 -> 인스턴스 시작-> 이름 및 태그에 서버 이름 적기-> AMI 고르기
+우분투를 제일 많이 쓴다고 함
+X86 , ARM CPU종류 인텔이랑 암프로세스 두개
+인스턴트 유형을 선택하자 지금은 프리티어
+키페어 생성해서 원하는 이름으로 생성
+xshell로 접속 할 거기 때문에 .pem으로 생성하자
+.pem이 다운받아졌다.
+네트워크 설정에서는 포트를 열어 준다. 포트를 열어야 접속이 가능 기존 보안그룹 생성=> default...
+스토리지 구성(용량 설정하기) OS설치/ 백업 이런 작업에 들어간다
+
+요약내용을 읽어보고
+인스턴트 시작
+
+모든 인스턴트 보기를 누르면 현재 실행중인 모든 인스턴트를 조회 할 수 있다.
+xshell을 실행
+새로만들기
+
+세션이름에 이름 짓기
+호스트 주소 적기(자동으로 할당된 IP로도 되고 퍼블릭 DNS로도 접속 가능 주소는 인스턴트 누르면 나옴)
+사용자 인증
+사용자 이름에 ubuntu (우분투로 서버 만들었기 때문에) aws linux로 만들었으면 ec2다
+암호는 넘기고
+password 체크 해제 public key 체크
+설정 누르고
+찾아보기 누르고
+아까 다운 받았단 .pem (키페어) 파일 받아오기
+확인 하고 나오는 암호칸에는 안적고 확인
+
+접속이 안된다
+?
+
+왜 안되나
+
+대기중
+
+재연결/다시시작 하면 된다고 하는데 일단 백업같은거 잘 해놔야 할거 같음
+
+이제 ubuntu linux 서버에 docker를 설치하자
+https://haengsin.tistory.com/128
+
+여기 참조
+
+1. 우분투 시스템 패키지 업데이트
+sudo apt-get update
+
+2. 필요한 패키지 설치
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+3. Docker의 공식 GPG키를 추가
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 
+
+4. Docker의 공식 apt 저장소를 추가
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+ 
+
+5. 시스템 패키지 업데이트
+sudo apt-get update
+
+6. Docker 설치
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+
+백업뜨기
+
+인스턴트 -> 백업뜰 인스턴트 우클릭 -> 이미지 생성 -> 내용 다 적고 생성(한글 지원 안됨) ->  완료후에 AMI클릭
+
+자 그럼 이제 원래 동작하던 인스턴트는 종료해봅시다
+
+종료 후에 인스턴트 시작 -> 우분투 설정 해주던곳에  나의 AMI가 있음 거기서 백업뜬거 선택해주고 -> 나머지 설정을 완료 해줍니다.
+
+
+docker compose up
+
+https://github.com/docker/awesome-compose
+
+https://github.com/docker/awesome-compose/blob/master/nginx-flask-mysql/compose.yaml
+
+xshell에 와서 git clone https://github.com/docker/awesome-compose.git
+
+cd awesome-compose
+
+cd nginx-flask-mysql
+
+vi compose-yaml
+
+volume은 폴더를 만들어주는거
+/root폴더 아래 lib만들고 mysql만들기
+
+sudo docker ps
+
+cd db
+
+vi password.txt
+
+password.txt 내용을 지우고 1234로 바꿈
+
+sudo docker compose up -d
+
+heidi sql로 이제 접속해보자..
+
+그러기 전에 실행중인 인스턴트의 보안그룹에서 3306포트를 열어야 한다
+
+사용자 지정 tcp ip - 포트 3000 / 5000 / 8000/ 8080 등등 0.0.0.0/0 하면 모든 ip에서 접속 허용
+
+규칙 추가
+
+성공적으로 왔을때 hedisql간다
+
+호스트에 인스턴트 주소 넣고
+비밀번호는 password.txt에 있던거 넣어줌
+
+접속이 성공하면 퍼블릭ipv4 dns 주소나 ipv4 ip주소를 넣어준다
+안되네
+
+sudo docker exec -t nginx-mysql-backend-1 bash
+
+/일단 안되서 취소
+
+git clone 내 프로젝트 주소 받아서
+
+파이 파일을 실행했더니 flask 가 없다고 한다
+
+다 설치해주고
+
+sudo docker build -t 이미지명 .
+
+sudo docker run --name 이름 -p 5000:5000  이미지명 
+
+1.명령어
+2.dockerfile -> image 파일 생성해서 실행하는 방법
+3. docker compose
+image 파일과 명령어를 합쳐놓은것
+
+
+docker run -> image pull +  컨테이너 생성과 start를 합쳐놓은것
+docker start ->이미 생성된 컨테이너를 실행
+
+container로 접속하기 위해서는
+sudo docker exec -it [컨테이너 이름] bash
+
+나갈때는 exit
+
+ps -ef 모든 프로세스 보기
+
+프로세스 죽이기
+kill -9(강제) pid번호
+
+apt update 리눅스 업데이트
+
+apt install vim vi editor 설치
+
+방금건 새로 또 열기
+
+sudo docker inspect mysql-container ip주소 알기
+
+왜냐하면 flask가 아니라 db에 접속하려면 db(mysql)ip에 접속해야 되기때문이다
+인스턴트 주소는 우분투 리눅스 가상 루트 컴퓨터의 주소이기 때문에 소용이 없다.
+루트 컴퓨터의 내용을 수정해봤자 서버 내용이 아닌 컴퓨터의 내용을 수정 하는 것 뿐
+
+
+도커 이미지 커밋하기(업데이트)
+이걸 안하면 다시 컨테이너 스타트 하면 수정전 으로 돌아가게 되기때문에 업데이트를 해보자
+sudo docker commit myweb(수정전 컨테이너) myweb(수정할 컨테이너)
+
+sudo docker stop myweb
+sudo docker rm myweb
+
+컨테이너 중지
+컨테이너 삭제
+
+이전 이미지 삭제
+sudo docker rmi myflask(이전에  myflask로 이미지를 받았음)
+
+sudo docker run -d -it  --name myweb -p 5000:5000 myweb (myflask를 없애고 나의 local에 있는 myweb 이미지를 가져가다가 create && start를 하게 됨)
+
+docker images push
+docker 로그인 -> repositories -> xshell로 와서 -> sudo docker tag [복사할 원본 이미지 이름]  [ 카피할 이미지 이름] -> sudo docker login -> 로그인 아이디와 패스워드 입력 (이메일 아이디 아님!)
+-> sudo docker push [이미지 이름](자신의 아이디/이미지 이름)
+
+
+오라클 DB를 docker container화 해쇼ㅓ 올리기
+
+sudo docker run --name myoracle -p 1521:1521 wnameless/oracle-xe-11g-r2:latest
+
+
+오라클이 프리티어로는 안 된다..
+
+4g는 되야 된다함
+
+내보낼 테이블을 익스포트를 할때 내보낼 내용을 설정하고 파일로 저장... 
+
+
+
+
+
