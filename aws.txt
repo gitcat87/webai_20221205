@@ -204,10 +204,6 @@ docker 로그인 -> repositories -> xshell로 와서 -> sudo docker tag [복사�
 sudo docker run --name myoracle -p 1521:1521 wnameless/oracle-xe-11g-r2:latest
 
 
-오라클이 프리티어로는 안 된다..
-
-4g는 되야 된다함
-
 내보낼 테이블을 익스포트를 할때 내보낼 내용을 설정하고 파일로 저장... 
 
 
